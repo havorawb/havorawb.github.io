@@ -233,8 +233,9 @@ nav{background:var(--sidebar);border-bottom:1px solid rgba(255,255,255,.06);padd
 .faq-arrow{flex-shrink:0;transition:transform .2s;color:var(--muted)}
 .faq-item.open .faq-arrow{transform:rotate(180deg)}
 .faq-a{padding:0 20px;max-height:0;overflow:hidden;transition:max-height .25s ease,padding .2s}
-.faq-item.open .faq-a{max-height:400px;padding:0 20px 18px}
+.faq-item.open .faq-a{max-height:640px;padding:0 20px 18px}
 .faq-a p{font-size:.875rem;color:var(--text2);line-height:1.75}
+.faq-a li{font-size:.875rem;color:var(--text2);line-height:1.6}
 
 /* ── SMARTSCREEN ── */
 .install-intro{font-size:.9rem;color:var(--text2);max-width:580px;margin-bottom:40px;line-height:1.75}
@@ -398,8 +399,8 @@ footer{background:var(--sidebar);padding:32px 0}
         <div class="stat-label">Para empezar</div>
       </div>
       <div class="stat-item">
-        <div class="stat-value">3</div>
-        <div class="stat-label">IAs compatibles</div>
+        <div class="stat-value">100%</div>
+        <div class="stat-label">IA opcional</div>
       </div>
     </div>
   </div>
@@ -1006,10 +1007,19 @@ footer{background:var(--sidebar);padding:32px 0}
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
-          ¿Cómo funciona el asistente de IA?
+          ¿La IA escribe mi novela por mí?
           <svg class="faq-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
-        <div class="faq-a"><p>Havora es compatible con <strong>OpenAI</strong>, <strong>Google Gemini</strong> y <strong>Anthropic Claude</strong>. Introduces tu propia clave de API en Configuración y la app la usa directamente — sin intermediarios, sin costos extra de nuestra parte. Pagas solo lo que consumes con tu proveedor de IA.</p></div>
+        <div class="faq-a"><p>No. Havora está pensado para que <strong>tú</strong> escribas — la IA es 100% opcional y, si no la conectas, ni siquiera aparece en la interfaz. No genera capítulos ni escribe prosa por ti. Sus funciones son de apoyo puntual:</p>
+        <ul style="margin:10px 0 10px 20px;padding:0;list-style:disc;display:flex;flex-direction:column;gap:5px">
+          <li>Revisar gramática y estilo de un capítulo ya escrito (sugerencias, no reescritura automática)</li>
+          <li>Sugerir sinónimos para una palabra o frase que selecciones</li>
+          <li>Responder preguntas tuyas sobre el capítulo actual (una especie de asistente de consulta)</li>
+          <li>Generar nombres de personajes o lugares</li>
+          <li>Expandir una idea suelta en tu tablero de brainstorming</li>
+          <li>Sugerir una descripción corta para una ficha de personaje, locación o entrada de wiki (texto de referencia, no manuscrito)</li>
+        </ul>
+        <p>Es compatible con <strong>OpenAI</strong>, <strong>Google Gemini</strong> y <strong>Anthropic Claude</strong>: pones tu propia clave de API en Configuración y la app la usa directamente, sin intermediarios ni costos extra de nuestra parte — pagas solo lo que consumes con tu proveedor.</p></div>
       </div>
 
     </div>
@@ -1148,7 +1158,7 @@ footer{background:var(--sidebar);padding:32px 0}
           <li>Kanban de tareas, calendario y cronología del proyecto</li>
           <li>Mapa anual de escritura (heatmap 52×7) y racha diaria</li>
           <li>KPIs y gráfico de progreso acumulado (365 días)</li>
-          <li>IA integrada (OpenAI, Gemini, Claude): revisión, sinónimos, descripciones</li>
+          <li>IA 100% opcional (OpenAI, Gemini, Claude): revisión, sinónimos y descripciones de apoyo — no escribe tu manuscrito por ti</li>
           <li>Tema claro/oscuro, 12 paletas de acento y escala de fuente</li>
           <li>Buscador global en toda la app</li>
           <li>Backup automático diario en %APPDATA%\Havora\backup\</li>
