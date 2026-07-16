@@ -267,6 +267,21 @@ nav{background:var(--sidebar);border-bottom:1px solid rgba(255,255,255,.06);padd
 .cta-final .btn-primary{font-size:1rem;padding:14px 32px}
 .cta-footnote{font-size:.78rem;color:rgba(255,255,255,.3);margin-top:16px}
 
+/* ── MANIFIESTO ── */
+.manifesto{position:relative;background:var(--sidebar);padding:120px 0;text-align:center;overflow:hidden;border-bottom:none}
+.manifesto-glow{position:absolute;inset:0;background:radial-gradient(ellipse 60% 55% at 50% 0%, color-mix(in srgb, var(--accent) 30%, transparent), transparent 72%);pointer-events:none}
+.manifesto-star{position:absolute;color:rgba(255,255,255,.5);pointer-events:none}
+.manifesto-star.s1{top:18%;left:12%;width:14px;height:14px}
+.manifesto-star.s2{top:64%;left:8%;width:9px;height:9px;opacity:.6}
+.manifesto-star.s3{top:24%;right:11%;width:10px;height:10px;opacity:.7}
+.manifesto-star.s4{top:68%;right:16%;width:16px;height:16px;opacity:.4}
+.manifesto-inner{position:relative;max-width:660px;margin:0 auto}
+.manifesto .eyebrow{display:inline-flex;align-items:center;gap:7px;font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:24px}
+.manifesto h2{font-family:var(--serif);font-size:clamp(2.1rem,4.8vw,3.2rem);font-weight:900;line-height:1.12;letter-spacing:-.03em;color:#fff;margin-bottom:28px;text-wrap:balance}
+.manifesto h2 em{font-style:italic;color:var(--accent-h)}
+.manifesto p{font-size:1.03rem;color:rgba(255,255,255,.6);line-height:1.8;margin:0 auto 16px}
+.manifesto-tag{font-family:var(--serif);font-style:italic;font-size:1.15rem;color:rgba(255,255,255,.88)!important;margin-top:14px!important}
+
 /* ── CHANGELOG ── */
 .changelog-header{display:flex;align-items:baseline;gap:14px;margin-bottom:22px;flex-wrap:wrap}
 .changelog-v{font-family:var(--serif);font-size:1.4rem;font-weight:700}
@@ -389,6 +404,25 @@ footer{background:var(--sidebar);padding:32px 0}
     </div>
   </div>
 </div>
+
+<!-- MANIFIESTO -->
+<section class="manifesto">
+  <div class="manifesto-glow"></div>
+  <svg class="manifesto-star s1" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+  <svg class="manifesto-star s2" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+  <svg class="manifesto-star s3" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+  <svg class="manifesto-star s4" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+  <div class="container manifesto-inner">
+    <div class="eyebrow">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      Qué es Havora
+    </div>
+    <h2>Un mundo donde tus ideas<br><em>cobran vida</em>.</h2>
+    <p>Havora no es solo un editor de texto. Es el lugar donde un personaje deja de ser una idea suelta y se convierte en alguien con un rostro, un mapa y una historia propia — donde tu mundo existe, se puede recorrer y recordar, incluso antes de que termines de escribir la primera página.</p>
+    <p>Cada ficha, cada mapa, cada línea de tiempo es una puerta más hacia el universo que estás construyendo. Tú pones la imaginación; Havora le da un lugar donde vivir.</p>
+    <p class="manifesto-tag">El hogar de tu imaginación.</p>
+  </div>
+</section>
 
 <!-- CÓMO FUNCIONA -->
 <section class="section" id="como-funciona">
