@@ -334,7 +334,7 @@ footer{background:var(--sidebar);padding:32px 0}
       <a href="#comparativa" class="btn-nav hide-mobile">Comparativa</a>
       <a href="#planes" class="btn-nav hide-mobile">Planes</a>
       <a href="#faq" class="btn-nav hide-mobile">FAQ</a>
-      <a href="https://github.com/havorawb/havora/releases/download/v1.0.0/HavoraSetup-1.0.0.exe" class="btn-primary">
+      <a href="https://github.com/havorawb/havora/releases/download/v1.0.0/HavoraSetup-1.0.0.exe" class="btn-primary" onclick="trackDownload()">
         ⬇ Descargar
       </a>
     </div>
@@ -355,7 +355,7 @@ footer{background:var(--sidebar);padding:32px 0}
         todo en una sola app, sin suscripciones obligatorias ni datos en la nube.
       </p>
       <div class="hero-actions">
-        <a href="https://github.com/havorawb/havora/releases/download/v1.0.0/HavoraSetup-1.0.0.exe" class="btn-primary">
+        <a href="https://github.com/havorawb/havora/releases/download/v1.0.0/HavoraSetup-1.0.0.exe" class="btn-primary" onclick="trackDownload()">
           ⬇ Descargar gratis para Windows
         </a>
         <a href="#como-funciona" class="btn-outline">Ver cómo funciona →</a>
@@ -891,7 +891,7 @@ footer{background:var(--sidebar);padding:32px 0}
           <li class="dim">Sin límites de contenido</li>
         </ul>
         <a href="https://github.com/havorawb/havora/releases/download/v1.0.0/HavoraSetup-1.0.0.exe"
-           class="btn-outline" style="width:100%;justify-content:center">Descargar gratis</a>
+           class="btn-outline" style="width:100%;justify-content:center" onclick="trackDownload()">Descargar gratis</a>
       </div>
 
       <div class="plan-card featured">
@@ -1108,7 +1108,7 @@ footer{background:var(--sidebar);padding:32px 0}
     <div class="eyebrow">Empieza hoy</div>
     <h2>Tu historia tiene un<br><em>mundo entero</em> esperando.</h2>
     <p>Descarga Havora gratis y empieza a construir el universo de tu novela desde el primer día.</p>
-    <a href="https://github.com/havorawb/havora/releases/download/v1.0.0/HavoraSetup-1.0.0.exe" class="btn-primary">
+    <a href="https://github.com/havorawb/havora/releases/download/v1.0.0/HavoraSetup-1.0.0.exe" class="btn-primary" onclick="trackDownload()">
       ⬇ Descargar para Windows — gratis
     </a>
     <div class="cta-footnote">Windows 10 / 11 · Sin cuenta · Sin tarjeta de crédito</div>
@@ -1285,6 +1285,20 @@ function setPremiumPrice(btn, price, note) {
   btn.classList.add('active');
   document.getElementById('premiumPrice').textContent = price;
   document.getElementById('premiumNote').innerHTML = note;
+}
+
+// URL del Cloudflare Worker que avisa por correo cada descarga (ver worker.js).
+var DOWNLOAD_NOTIFY_URL = 'https://havora-notify.worldforge-support.workers.dev';
+function trackDownload() {
+  try {
+    fetch(DOWNLOAD_NOTIFY_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      keepalive: true,
+      body: JSON.stringify({ type: 'download', page: location.pathname }),
+    });
+  } catch (e) {}
+  // No se bloquea la navegación: el enlace sigue a GitHub Releases normalmente.
 }
 </script>
 </body>
