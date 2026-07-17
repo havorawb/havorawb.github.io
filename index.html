@@ -284,15 +284,28 @@ nav{background:var(--sidebar);border-bottom:1px solid rgba(255,255,255,.06);padd
 .manifesto-tag{font-family:var(--serif);font-style:italic;font-size:1.15rem;color:rgba(255,255,255,.88)!important;margin-top:14px!important}
 
 /* ── CHANGELOG ── */
-.changelog-header{display:flex;align-items:baseline;gap:14px;margin-bottom:22px;flex-wrap:wrap}
+.changelog-entry{margin-bottom:56px}
+.changelog-entry:last-child{margin-bottom:0}
+.changelog-header{display:flex;align-items:baseline;gap:14px;margin-bottom:18px;flex-wrap:wrap}
 .changelog-v{font-family:var(--serif);font-size:1.4rem;font-weight:700}
 .changelog-date{font-size:.8rem;color:var(--muted)}
 .changelog-tag{font-size:.67rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;background:color-mix(in srgb,var(--accent) 12%,transparent);color:var(--accent);padding:2px 10px;border-radius:20px;border:1px solid color-mix(in srgb,var(--accent) 22%,transparent)}
 .changelog-groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:26px}
 .changelog-group h4{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
-.changelog-group ul{list-style:none;display:flex;flex-direction:column;gap:7px}
+.changelog-group ul{list-style:none;display:flex;flex-direction:column;gap:9px}
 .changelog-group li{font-size:.82rem;color:var(--text2);padding-left:12px;position:relative;line-height:1.45}
 .changelog-group li::before{content:'·';position:absolute;left:1px;color:var(--accent);font-weight:900;font-size:1.1em}
+/* items tipados (nuevo/mejora/corrección) con ícono de color — reemplaza el punto genérico */
+.chg-legend{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:24px}
+.chg-legend-item{display:flex;align-items:center;gap:6px;font-size:.76rem;color:var(--muted)}
+.chg-badge{display:inline-flex;align-items:center;justify-content:center;width:17px;height:17px;border-radius:50%;flex-shrink:0}
+.chg-badge svg{width:10px;height:10px}
+.chg-new{background:color-mix(in srgb,#2e9e5b 14%,transparent);color:#2e9e5b}
+.chg-improved{background:color-mix(in srgb,#d98324 14%,transparent);color:#d98324}
+.chg-fixed{background:color-mix(in srgb,#d9534f 14%,transparent);color:#d9534f}
+.changelog-group li.chg-item{padding-left:0;display:flex;align-items:flex-start;gap:9px}
+.changelog-group li.chg-item::before{content:none}
+.changelog-group li.chg-item .chg-badge{margin-top:1px}
 
 /* ── FOOTER ── */
 footer{background:var(--sidebar);padding:32px 0}
@@ -334,7 +347,7 @@ footer{background:var(--sidebar);padding:32px 0}
       <a href="#comparativa" class="btn-nav hide-mobile">Comparativa</a>
       <a href="#planes" class="btn-nav hide-mobile">Planes</a>
       <a href="#faq" class="btn-nav hide-mobile">FAQ</a>
-      <a href="https://github.com/havorawb/havora/releases/download/v1.0.0/HavoraSetup-1.0.0.exe" class="btn-primary" onclick="trackDownload()">
+      <a href="https://github.com/havorawb/havora/releases/download/v1.1.0/HavoraSetup-1.1.0.exe" class="btn-primary" onclick="trackDownload()">
         ⬇ Descargar
       </a>
     </div>
@@ -355,7 +368,7 @@ footer{background:var(--sidebar);padding:32px 0}
         todo en una sola app, sin suscripciones obligatorias ni datos en la nube.
       </p>
       <div class="hero-actions">
-        <a href="https://github.com/havorawb/havora/releases/download/v1.0.0/HavoraSetup-1.0.0.exe" class="btn-primary" onclick="trackDownload()">
+        <a href="https://github.com/havorawb/havora/releases/download/v1.1.0/HavoraSetup-1.1.0.exe" class="btn-primary" onclick="trackDownload()">
           ⬇ Descargar gratis para Windows
         </a>
         <a href="#como-funciona" class="btn-outline">Ver cómo funciona →</a>
@@ -364,7 +377,7 @@ footer{background:var(--sidebar);padding:32px 0}
         <span>Gratis para siempre</span>
         <span>Windows 10 / 11</span>
         <span>100% offline</span>
-        <span>v1.0.0</span>
+        <span>v1.1.0</span>
       </div>
     </div>
     <!-- Captura principal de la app -->
@@ -890,7 +903,7 @@ footer{background:var(--sidebar);padding:32px 0}
           <li class="dim">Exportación a EPUB</li>
           <li class="dim">Sin límites de contenido</li>
         </ul>
-        <a href="https://github.com/havorawb/havora/releases/download/v1.0.0/HavoraSetup-1.0.0.exe"
+        <a href="https://github.com/havorawb/havora/releases/download/v1.1.0/HavoraSetup-1.1.0.exe"
            class="btn-outline" style="width:100%;justify-content:center" onclick="trackDownload()">Descargar gratis</a>
       </div>
 
@@ -1082,7 +1095,7 @@ footer{background:var(--sidebar);padding:32px 0}
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
               </div>
               <div>
-                <div class="ss-text-title">HavoraSetup-1.0.0.exe</div>
+                <div class="ss-text-title">HavoraSetup-1.1.0.exe</div>
                 <div class="ss-text-body">Editor: <strong style="color:rgba(255,255,255,.8)">havorawb</strong></div>
               </div>
             </div>
@@ -1108,7 +1121,7 @@ footer{background:var(--sidebar);padding:32px 0}
     <div class="eyebrow">Empieza hoy</div>
     <h2>Tu historia tiene un<br><em>mundo entero</em> esperando.</h2>
     <p>Descarga Havora gratis y empieza a construir el universo de tu novela desde el primer día.</p>
-    <a href="https://github.com/havorawb/havora/releases/download/v1.0.0/HavoraSetup-1.0.0.exe" class="btn-primary" onclick="trackDownload()">
+    <a href="https://github.com/havorawb/havora/releases/download/v1.1.0/HavoraSetup-1.1.0.exe" class="btn-primary" onclick="trackDownload()">
       ⬇ Descargar para Windows — gratis
     </a>
     <div class="cta-footnote">Windows 10 / 11 · Sin cuenta · Sin tarjeta de crédito</div>
@@ -1121,6 +1134,52 @@ footer{background:var(--sidebar);padding:32px 0}
     <div class="section-label">Versión</div>
     <h2 class="section-title">Havora, listo para escribir</h2>
 
+    <div class="chg-legend">
+      <span class="chg-legend-item"><span class="chg-badge chg-new"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg></span> Nueva función</span>
+      <span class="chg-legend-item"><span class="chg-badge chg-improved"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 15V9M8.5 12.5 12 9l3.5 3.5"/></svg></span> Mejora</span>
+      <span class="chg-legend-item"><span class="chg-badge chg-fixed"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg></span> Corrección</span>
+    </div>
+
+    <div class="changelog-entry">
+    <div class="changelog-header">
+      <span class="changelog-v">v1.1.0</span>
+      <span class="changelog-date">17 de julio de 2026</span>
+    </div>
+    <div class="changelog-groups">
+      <div class="changelog-group">
+        <h4>Nuevo</h4>
+        <ul>
+          <li class="chg-item"><span class="chg-badge chg-new"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg></span><span>Mapas conceptuales: lienzo de tarjetas de texto, imagen y tabla, conectables entre sí</span></li>
+          <li class="chg-item"><span class="chg-badge chg-new"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg></span><span>Sección de Razas, con campo de raza en la ficha de personaje</span></li>
+          <li class="chg-item"><span class="chg-badge chg-new"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg></span><span>Botón de fijar tarjetas en personajes, locaciones, grupos, wiki y escenas</span></li>
+          <li class="chg-item"><span class="chg-badge chg-new"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg></span><span>Árbol genealógico con interacción tipo grafo: arrastrar, conectar y reordenar nodos</span></li>
+          <li class="chg-item"><span class="chg-badge chg-new"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg></span><span>Indicadores de límite del plan gratuito en cada sección y en el panel de estadísticas</span></li>
+          <li class="chg-item"><span class="chg-badge chg-new"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg></span><span>Nuevos campos en "Mi proyecto": estado y público objetivo</span></li>
+        </ul>
+      </div>
+      <div class="changelog-group">
+        <h4>Mejoras</h4>
+        <ul>
+          <li class="chg-item"><span class="chg-badge chg-improved"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 15V9M8.5 12.5 12 9l3.5 3.5"/></svg></span><span>Los límites del plan gratuito ahora son globales (toda la cuenta), no por proyecto</span></li>
+          <li class="chg-item"><span class="chg-badge chg-improved"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 15V9M8.5 12.5 12 9l3.5 3.5"/></svg></span><span>Rediseño de "Mi proyecto": estadísticas colapsables y acciones fijas al pie</span></li>
+          <li class="chg-item"><span class="chg-badge chg-improved"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 15V9M8.5 12.5 12 9l3.5 3.5"/></svg></span><span>Tarjetas de imagen del mapa conceptual más livianas al arrastrar</span></li>
+          <li class="chg-item"><span class="chg-badge chg-improved"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 15V9M8.5 12.5 12 9l3.5 3.5"/></svg></span><span>Editor de manuscrito más limpio junto al botón Guardar</span></li>
+          <li class="chg-item"><span class="chg-badge chg-improved"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 15V9M8.5 12.5 12 9l3.5 3.5"/></svg></span><span>El botón Soporte abre la página de sugerencias directamente</span></li>
+        </ul>
+      </div>
+      <div class="changelog-group">
+        <h4>Correcciones</h4>
+        <ul>
+          <li class="chg-item"><span class="chg-badge chg-fixed"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg></span><span>Los mapas conceptuales y árboles genealógicos se centran correctamente al abrir</span></li>
+          <li class="chg-item"><span class="chg-badge chg-fixed"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg></span><span>Condición de carrera de licencia corregida al iniciar la app</span></li>
+          <li class="chg-item"><span class="chg-badge chg-fixed"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg></span><span>Las conexiones del mapa conceptual se dibujan de inmediato, sin mover una tarjeta primero</span></li>
+          <li class="chg-item"><span class="chg-badge chg-fixed"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg></span><span>Varios ajustes menores: fichas de Raza, exportación a ODT y log diario de palabras</span></li>
+        </ul>
+      </div>
+    </div>
+    </div>
+
+    <div class="changelog-entry">
     <div class="changelog-header">
       <span class="changelog-v">v1.0.0</span>
       <span class="changelog-date">15 de julio de 2026</span>
@@ -1172,6 +1231,7 @@ footer{background:var(--sidebar);padding:32px 0}
           <li>Planes mensual ($9.99/mes) y anual ($79/año)</li>
         </ul>
       </div>
+    </div>
     </div>
   </div>
 </section>
