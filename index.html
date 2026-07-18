@@ -210,7 +210,8 @@ nav{background:var(--sidebar);border-bottom:1px solid rgba(255,255,255,.06);padd
 .plan-features li::before{content:'✓';position:absolute;left:0;color:var(--accent);font-size:.75rem;top:2px;font-weight:700}
 .plan-features li.dim{color:var(--muted)}
 .plan-features li.dim::before{color:var(--border)}
-.price-tabs{display:flex;gap:6px;margin-bottom:14px}
+.price-was{font-weight:500;color:var(--muted);font-size:.55em;margin-right:6px}
+.launch-countdown{font-size:.76rem;color:var(--accent);background:color-mix(in srgb,var(--accent) 10%,transparent);border-radius:20px;padding:4px 12px;display:inline-block;margin-bottom:20px;font-weight:600}
 /* ── Tabla de comparación ── */
 .compare-wrap{overflow-x:auto}
 .compare-label{font-size:.68rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);text-align:center;margin-top:52px;margin-bottom:16px}
@@ -228,10 +229,6 @@ nav{background:var(--sidebar);border-bottom:1px solid rgba(255,255,255,.06);padd
 .cval-n{color:var(--border);font-size:1.1rem;line-height:1}
 .cval-lim{color:var(--text2);font-size:.8rem}
 .cval-inf{color:var(--accent);font-size:.8rem;font-weight:600}
-.price-tab{font-size:.73rem;font-weight:600;padding:5px 13px;border-radius:20px;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;transition:all .15s}
-.price-tab.active{background:var(--accent);color:#fff;border-color:var(--accent)}
-.price-save{font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#16a34a;background:#dcfce7;border-radius:20px;padding:2px 8px;margin-left:4px}
-@media(prefers-color-scheme:dark){.price-save{background:#14532d;color:#4ade80}}
 
 /* ── FAQ ── */
 .faq-list{display:flex;flex-direction:column;gap:8px;max-width:720px}
@@ -1004,7 +1001,7 @@ footer{background:var(--sidebar);padding:32px 0}
           </tr>
           <tr>
             <td>Precio</td>
-            <td class="col-wf" style="color:var(--accent)">Gratis · $9.99/mes</td>
+            <td class="col-wf" style="color:var(--accent)">Gratis · $39 único</td>
             <td class="c-par">$9.99/mes</td>
             <td class="c-yes">Gratis</td>
             <td class="c-par">$59.99 único</td>
@@ -1034,10 +1031,10 @@ footer{background:var(--sidebar);padding:32px 0}
           <li>Personajes, locaciones, wiki y escenas</li>
           <li>Mapa, relaciones y árbol genealógico</li>
           <li>Corrector ortográfico offline (ES / EN)</li>
-          <li>Exportación a DOCX y TXT</li>
+          <li>Exportación a TXT, .wf y PDF (con marca de agua)</li>
           <li>Asistente de IA (con tu propia clave API)</li>
-          <li>Backup automático diario</li>
-          <li class="dim">Exportación a EPUB</li>
+          <li>1 backup automático del proyecto</li>
+          <li class="dim">Exportación a DOCX, EPUB y ODT</li>
           <li class="dim">Sin límites de contenido</li>
         </ul>
         <a href="https://github.com/havorawb/havora/releases/download/v1.1.2/HavoraSetup-1.1.2.exe"
@@ -1045,25 +1042,24 @@ footer{background:var(--sidebar);padding:32px 0}
       </div>
 
       <div class="plan-card featured">
-        <div class="plan-badge">Recomendado</div>
+        <div class="plan-badge" id="premiumPlanBadge">Oferta de lanzamiento</div>
         <div class="plan-name">Premium</div>
-        <div class="price-tabs">
-          <button class="price-tab active" onclick="setPremiumPrice(this,'$9.99','/ mes')">Mensual</button>
-          <button class="price-tab" onclick="setPremiumPrice(this,'$79','/ año <span class=\'price-save\'>Ahorra $41</span>')">Anual</button>
-        </div>
-        <div class="plan-price" id="premiumPrice">$9.99</div>
-        <div class="plan-price-note" id="premiumNote">/ mes</div>
+        <div class="plan-price" id="premiumPrice"><s class="price-was">$49</s> $39</div>
+        <div class="plan-price-note" id="premiumNote">Pago único · de por vida</div>
+        <div class="launch-countdown" id="launchCountdown"></div>
         <hr class="plan-divider">
         <ul class="plan-features">
-          <li>Todo lo del plan Gratis</li>
-          <li>Exportación a EPUB</li>
-          <li>Sin límites de contenido</li>
+          <li>Todo lo del plan Gratis, sin límites de contenido</li>
+          <li>Exportación a PDF sin marca de agua, DOCX, EPUB y ODT</li>
+          <li>Historial de versiones de capítulo ilimitado y restaurable</li>
+          <li>Backups automáticos ilimitados</li>
           <li>Soporte prioritario</li>
         </ul>
-        <div style="background:var(--bg3);border-radius:8px;padding:14px 16px;text-align:center;font-size:.83rem;color:var(--text2);line-height:1.55">
-          La suscripción se activa <strong>desde la app</strong>.<br>
-          Abre Havora → <em>Configuración → Licencia → Obtener Premium</em>.<br>
-          <span style="color:var(--muted);font-size:.78rem">Se abre tu navegador con la pantalla de pago · Cancela cuando quieras</span>
+        <button class="btn-primary" id="premiumBuyBtn" style="width:100%;justify-content:center" onclick="buyPremium()">
+          <span id="premiumBuyBtnLabel">Obtener Premium</span>
+        </button>
+        <div style="margin-top:12px;text-align:center;font-size:.78rem;color:var(--muted)">
+          Pago cifrado por Paddle · un solo pago, sin renovaciones
         </div>
       </div>
 
@@ -1087,21 +1083,22 @@ footer{background:var(--sidebar);padding:32px 0}
           <tr><td>Mapa interactivo y árbol genealógico</td><td><span class="cval-y">✓</span></td><td class="col-prem"><span class="cval-y">✓</span></td></tr>
           <tr><td>Corrector ortográfico offline (ES / EN)</td><td><span class="cval-y">✓</span></td><td class="col-prem"><span class="cval-y">✓</span></td></tr>
           <tr><td>Asistente de IA (con tu propia clave API)</td><td><span class="cval-y">✓</span></td><td class="col-prem"><span class="cval-y">✓</span></td></tr>
-          <tr><td>Backup automático diario</td><td><span class="cval-y">✓</span></td><td class="col-prem"><span class="cval-y">✓</span></td></tr>
-          <tr><td>Exportación a DOCX y TXT</td><td><span class="cval-y">✓</span></td><td class="col-prem"><span class="cval-y">✓</span></td></tr>
-          <tr><td>Exportación a EPUB</td><td><span class="cval-n">—</span></td><td class="col-prem"><span class="cval-y">✓</span></td></tr>
+          <tr><td>Exportación a TXT y .wf</td><td><span class="cval-y">✓</span></td><td class="col-prem"><span class="cval-y">✓</span></td></tr>
+          <tr><td>Exportación a PDF</td><td><span class="cval-lim">con marca de agua</span></td><td class="col-prem"><span class="cval-y">✓ sin marca de agua</span></td></tr>
+          <tr><td>Exportación a DOCX, EPUB y ODT</td><td><span class="cval-n">—</span></td><td class="col-prem"><span class="cval-y">✓</span></td></tr>
+          <tr><td>Backup automático del proyecto</td><td><span class="cval-lim">1 (se sobreescribe)</span></td><td class="col-prem"><span class="cval-inf">Historial ilimitado</span></td></tr>
+          <tr><td>Historial de versiones de capítulo</td><td><span class="cval-lim">último autoguardado</span></td><td class="col-prem"><span class="cval-inf">Ilimitado y restaurable</span></td></tr>
           <tr><td>Soporte prioritario por email</td><td><span class="cval-n">—</span></td><td class="col-prem"><span class="cval-y">✓</span></td></tr>
 
           <tr class="grp-row"><td colspan="3">Límites de contenido</td></tr>
-          <tr><td>Proyectos</td><td><span class="cval-lim">hasta 3</span></td><td class="col-prem"><span class="cval-inf">Ilimitados</span></td></tr>
-          <tr><td>Personajes</td><td><span class="cval-lim">hasta 30</span></td><td class="col-prem"><span class="cval-inf">Ilimitados</span></td></tr>
-          <tr><td>Capítulos</td><td><span class="cval-lim">hasta 15</span></td><td class="col-prem"><span class="cval-inf">Ilimitados</span></td></tr>
+          <tr><td>Proyectos</td><td><span class="cval-lim">1</span></td><td class="col-prem"><span class="cval-inf">Ilimitados</span></td></tr>
+          <tr><td>Capítulos y escenas</td><td><span class="cval-inf">Ilimitados</span></td><td class="col-prem"><span class="cval-inf">Ilimitados</span></td></tr>
+          <tr><td>Personajes</td><td><span class="cval-lim">hasta 25</span></td><td class="col-prem"><span class="cval-inf">Ilimitados</span></td></tr>
           <tr><td>Locaciones</td><td><span class="cval-lim">hasta 20</span></td><td class="col-prem"><span class="cval-inf">Ilimitadas</span></td></tr>
-          <tr><td>Escenas</td><td><span class="cval-lim">hasta 40</span></td><td class="col-prem"><span class="cval-inf">Ilimitadas</span></td></tr>
           <tr><td>Fichas wiki</td><td><span class="cval-lim">hasta 30</span></td><td class="col-prem"><span class="cval-inf">Ilimitadas</span></td></tr>
           <tr><td>Grupos</td><td><span class="cval-lim">hasta 10</span></td><td class="col-prem"><span class="cval-inf">Ilimitados</span></td></tr>
           <tr><td>Razas</td><td><span class="cval-lim">hasta 10</span></td><td class="col-prem"><span class="cval-inf">Ilimitadas</span></td></tr>
-          <tr><td>Eventos en línea de tiempo</td><td><span class="cval-lim">hasta 30</span></td><td class="col-prem"><span class="cval-inf">Ilimitados</span></td></tr>
+          <tr><td>Eventos en línea de tiempo</td><td><span class="cval-lim">hasta 40</span></td><td class="col-prem"><span class="cval-inf">Ilimitados</span></td></tr>
           <tr><td>Mapas del mundo</td><td><span class="cval-lim">hasta 1</span></td><td class="col-prem"><span class="cval-inf">Ilimitados</span></td></tr>
           <tr><td>Árboles genealógicos</td><td><span class="cval-lim">hasta 1</span></td><td class="col-prem"><span class="cval-inf">Ilimitados</span></td></tr>
           <tr><td>Mapas conceptuales</td><td><span class="cval-lim">hasta 1</span></td><td class="col-prem"><span class="cval-inf">Ilimitados</span></td></tr>
@@ -1152,10 +1149,18 @@ footer{background:var(--sidebar);padding:32px 0}
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
-          ¿Qué pasa si cancelo el plan Premium?
+          ¿Premium es una suscripción o un pago único?
           <svg class="faq-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
-        <div class="faq-a"><p>Tus proyectos y todos los datos quedan intactos en tu equipo. Simplemente vuelves al plan gratuito, con acceso completo a todas las funciones base. No pierdes ningún contenido.</p></div>
+        <div class="faq-a"><p>Es un <strong>pago único</strong>: pagas una vez y tu licencia Premium queda activa de por vida en esa cuenta, sin renovaciones ni cargos recurrentes. Tus proyectos y datos siempre quedan en tu equipo, tengas o no Premium.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          ¿Puedo pedir un reembolso?
+          <svg class="faq-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="faq-a"><p>Sí, dentro de los primeros 7 días desde la compra si Premium no cumplió tus expectativas. Consulta la <a href="refund.html">política de reembolsos</a> para el detalle.</p></div>
       </div>
 
       <div class="faq-item">
@@ -1520,11 +1525,50 @@ function toggleFaq(btn) {
   if (!isOpen) item.classList.add('open');
 }
 
-function setPremiumPrice(btn, price, note) {
-  document.querySelectorAll('.price-tab').forEach(function(t){ t.classList.remove('active'); });
-  btn.classList.add('active');
-  document.getElementById('premiumPrice').textContent = price;
-  document.getElementById('premiumNote').innerHTML = note;
+// ── Compra Premium directa desde la web (sin pasar por la app) ──
+var PADDLE_WORKER_URL      = 'https://worldforge-paddle-validator.worldforge-support.workers.dev';
+var PADDLE_PRICE_LIFETIME  = 'pri_01kxs5869pz2p4yak6z63etqay';
+var PADDLE_DISCOUNT_LAUNCH = 'dsc_01kxez2y5hzjn6zvk6dvx77np6';
+var PADDLE_LAUNCH_DISCOUNT_END = '2026-08-31T23:59:59';
+
+function launchDiscountActive() {
+  return new Date() < new Date(PADDLE_LAUNCH_DISCOUNT_END);
+}
+
+(function renderLaunchCountdown() {
+  var el = document.getElementById('launchCountdown');
+  if (!el) return;
+  if (!launchDiscountActive()) {
+    document.getElementById('premiumPlanBadge').textContent = 'Recomendado';
+    document.getElementById('premiumPrice').innerHTML = '$49';
+    document.getElementById('premiumNote').textContent = 'Pago único · de por vida';
+    el.remove();
+    return;
+  }
+  var end = new Date(PADDLE_LAUNCH_DISCOUNT_END);
+  var days = Math.max(0, Math.ceil((end - new Date()) / 86400000));
+  el.textContent = days <= 1 ? 'Último día de oferta de lanzamiento' : 'Oferta de lanzamiento — quedan ' + days + ' días';
+})();
+
+async function buyPremium() {
+  var btn   = document.getElementById('premiumBuyBtn');
+  var label = document.getElementById('premiumBuyBtnLabel');
+  var originalLabel = label.textContent;
+  btn.disabled = true;
+  label.textContent = 'Abriendo pago…';
+  try {
+    var qs = 'priceId=' + encodeURIComponent(PADDLE_PRICE_LIFETIME);
+    if (launchDiscountActive()) qs += '&discountId=' + encodeURIComponent(PADDLE_DISCOUNT_LAUNCH);
+    var res = await fetch(PADDLE_WORKER_URL + '/create-checkout?' + qs);
+    var data = await res.json().catch(function(){ return {}; });
+    if (data.error) throw new Error(data.error);
+    if (!data.transactionId) throw new Error('No se recibió ID de transacción');
+    location.href = 'checkout.html?_ptxn=' + encodeURIComponent(data.transactionId);
+  } catch (err) {
+    alert('No se pudo abrir el pago: ' + (err && err.message ? err.message : err) + '\n\nTambién puedes comprarlo desde la app: Configuración → Licencia → Obtener Premium.');
+    btn.disabled = false;
+    label.textContent = originalLabel;
+  }
 }
 
 // URL del Cloudflare Worker que avisa por correo cada descarga (ver worker.js).
