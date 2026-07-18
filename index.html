@@ -104,6 +104,7 @@ nav{background:var(--sidebar);border-bottom:1px solid rgba(255,255,255,.06);padd
 .pain-chip:hover{transform:rotate(0deg) translateY(-2px)}
 .pain-down-arrow{display:flex;justify-content:center;color:var(--border);margin:22px 0}
 .pain-resolve{max-width:420px;margin:0 auto;background:var(--accent);border-radius:var(--r);padding:26px 30px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:12px;box-shadow:0 16px 40px color-mix(in srgb,var(--accent) 35%,transparent)}
+.pain-resolve-badge{width:40px;height:40px;border-radius:50%;background:#fff;color:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .pain-resolve-text{font-family:var(--serif);font-size:1.3rem;font-weight:700;color:#fff;line-height:1.3}
 @media(max-width:600px){.pain-cloud{gap:10px}.pain-chip{font-size:.78rem;padding:9px 14px}}
 
@@ -455,7 +456,7 @@ footer{background:var(--sidebar);padding:32px 0}
     <div class="pain-down-arrow"><svg width="20" height="26" viewBox="0 0 20 26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="10" y1="1" x2="10" y2="21"/><polyline points="3 15 10 22 17 15"/></svg></div>
 
     <div class="pain-resolve">
-      <svg class="pain-resolve-logo" width="30" height="30" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><rect width="36" height="36" rx="8" fill="#5c6bc0"/><path d="M5,18 Q5,5 18,5 Q31,5 31,18 Z" fill="white"/><ellipse cx="12.5" cy="11.5" rx="4" ry="5.5" fill="#5c6bc0" opacity="0.65"/><ellipse cx="23" cy="12.5" rx="3.5" ry="4.5" fill="#5c6bc0" opacity="0.65"/><path d="M3.5,20.5 L32.5,20.5 L29,26.5 L7,26.5 Z" fill="white"/><path d="M3.5,20.5 Q0.5,21.5 2,25 L7,26.5 Z" fill="white"/><rect x="13.5" y="26.5" width="9" height="5.5" rx="1" fill="white"/><rect x="9.5" y="32" width="17" height="3.5" rx="1.5" fill="white"/></svg>
+      <div class="pain-resolve-badge"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
       <p class="pain-resolve-text">Havora reúne todo eso en un solo lugar.</p>
     </div>
   </div>
