@@ -48,8 +48,10 @@ nav{background:var(--sidebar);border-bottom:1px solid rgba(255,255,255,.06);padd
 .nav-links{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .btn-nav{color:rgba(255,255,255,.6);font-size:.85rem;font-weight:500;padding:7px 14px;border-radius:7px;border:1px solid rgba(255,255,255,.1);transition:all .15s;text-decoration:none}
 .btn-nav:hover{color:#fff;border-color:rgba(255,255,255,.25)}
-.btn-primary{background:var(--accent);color:#fff!important;font-weight:600;font-size:.875rem;padding:9px 20px;border-radius:7px;border:none;cursor:pointer;transition:background .15s;text-decoration:none;display:inline-flex;align-items:center;gap:6px;line-height:1}
-.btn-primary:hover{background:var(--accent-h)}
+.btn-primary{background:var(--accent);color:#fff!important;font-weight:600;font-size:.875rem;padding:9px 20px;border-radius:7px;border:none;cursor:pointer;transition:background .15s,transform .15s,box-shadow .15s;text-decoration:none;display:inline-flex;align-items:center;gap:6px;line-height:1}
+.btn-primary:hover{background:var(--accent-h);transform:translateY(-1px);box-shadow:0 6px 16px color-mix(in srgb,var(--accent) 35%,transparent)}
+.btn-primary:active{transform:translateY(0)}
+@media(prefers-reduced-motion:reduce){.btn-primary{transition:background .15s}.btn-primary:hover{transform:none}}
 @media(max-width:640px){.btn-nav.hide-mobile{display:none}.nav-logo-tagline{display:none}}
 
 /* ── HERO ── */
@@ -78,13 +80,28 @@ nav{background:var(--sidebar);border-bottom:1px solid rgba(255,255,255,.06);padd
 .screen-placeholder span{font-size:.8rem;opacity:.6}
 
 /* ── STATS BAR ── */
-.stats-bar{background:var(--bg2);border-bottom:1px solid var(--border);padding:22px 0}
-.stats-row{display:flex;justify-content:center;gap:0;flex-wrap:wrap}
+.stats-bar{background:var(--bg2);border-bottom:1px solid var(--border);padding:18px 0}
+.stats-row{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}
+.trust-chip{display:flex;align-items:center;gap:8px;padding:8px 20px;border-right:1px solid var(--border);font-size:.85rem;font-weight:600;color:var(--text2)}
+.trust-chip svg{color:var(--accent);flex-shrink:0}
 .stat-item{text-align:center;padding:8px 36px;border-right:1px solid var(--border)}
 .stat-item:last-child{border-right:none}
 .stat-value{font-family:var(--serif);font-size:1.5rem;font-weight:700;color:var(--text);line-height:1.1}
 .stat-label{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.09em;margin-top:3px}
 @media(max-width:600px){.stat-item{border-right:none;border-bottom:1px solid var(--border);padding:12px 24px}.stat-item:last-child{border-bottom:none}}
+
+/* ── DOLOR / SOLUCIÓN ── */
+.pain-section{padding:52px 0}
+.pain-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:28px;align-items:center;max-width:900px;margin:0 auto}
+.pain-kicker{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.pain-list{list-style:none;display:flex;flex-direction:column;gap:9px}
+.pain-list li{font-size:.9rem;color:var(--text2)}
+.pain-x{color:#c0392b;opacity:.55;font-weight:700;margin-right:8px;font-size:.8rem}
+.pain-arrow{font-size:1.6rem;color:var(--accent);font-weight:300}
+.pain-after{background:color-mix(in srgb,var(--accent) 8%,transparent);border:1px solid color-mix(in srgb,var(--accent) 25%,transparent);border-radius:var(--r);padding:28px 26px;text-align:center}
+.pain-after-icon{width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
+.pain-after-text{font-family:var(--serif);font-size:1.25rem;font-weight:700;color:var(--text);line-height:1.3}
+@media(max-width:760px){.pain-grid{grid-template-columns:1fr}.pain-arrow{transform:rotate(90deg);justify-self:center}}
 
 /* ── SECTIONS ── */
 .section{padding:88px 0;border-bottom:1px solid var(--border)}
@@ -230,6 +247,9 @@ nav{background:var(--sidebar);border-bottom:1px solid rgba(255,255,255,.06);padd
 .cval-n{color:var(--border);font-size:1.1rem;line-height:1}
 .cval-lim{color:var(--text2);font-size:.8rem}
 .cval-inf{color:var(--accent);font-size:.8rem;font-weight:600}
+.check-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin-top:40px;max-width:920px}
+.check-item{display:flex;align-items:center;gap:12px;background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px 18px;font-size:.87rem;font-weight:500;color:var(--text)}
+.check-item i{font-style:normal;color:#fff;background:var(--accent);width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;flex-shrink:0}
 
 /* ── FAQ ── */
 .faq-list{display:flex;flex-direction:column;gap:8px;max-width:720px}
@@ -370,15 +390,12 @@ footer{background:var(--sidebar);padding:32px 0}
         <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
         Aplicación de escritorio · Windows
       </div>
-      <h1>Tu historia merece<br>un <em>mundo</em> a su altura.</h1>
-      <p class="hero-claim">Escribe, organiza y desarrolla tu novela completa desde una sola aplicación.</p>
-      <p class="hero-sub">
-        Personajes, mapas, wiki y línea de tiempo conectados a tu manuscrito —
-        sin cuenta, sin nube y sin pagos recurrentes. Tus historias, siempre tuyas.
-      </p>
+      <h1>Escribe la novela<br>que llevas <em>años imaginando</em>.</h1>
+      <p class="hero-claim">Todo tu mundo, tus personajes y tu manuscrito en un solo lugar.</p>
+      <p class="hero-sub">Sin cuenta, sin nube, sin pagos recurrentes — tus historias, siempre tuyas.</p>
       <div class="hero-actions">
         <a href="https://github.com/havorawb/havora/releases/download/v1.1.2/HavoraSetup-1.1.2.exe" class="btn-primary" onclick="trackDownload()">
-          ⬇ Descargar gratis para Windows
+          ⬇ Descargar Havora gratis
         </a>
         <a href="#como-funciona" class="btn-outline">Ver cómo funciona →</a>
       </div>
@@ -398,7 +415,7 @@ footer{background:var(--sidebar);padding:32px 0}
         <div class="chrome-bar"></div>
       </div>
       <div class="screen-img-wrap">
-        <img src="assets/wf-hero.png" class="zoomable" alt="Havora — ficha de personaje con worldbuilding">
+        <img src="assets/wf-hero.webp" class="zoomable" alt="Havora — ficha de personaje con worldbuilding">
       </div>
     </div>
   </div>
@@ -408,25 +425,36 @@ footer{background:var(--sidebar);padding:32px 0}
 <div class="stats-bar">
   <div class="container">
     <div class="stats-row">
-      <div class="stat-item">
-        <div class="stat-value">100%</div>
-        <div class="stat-label">Offline</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-value">18</div>
-        <div class="stat-label">Módulos integrados</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-value">$0</div>
-        <div class="stat-label">Para empezar</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-value">100%</div>
-        <div class="stat-label">IA opcional</div>
-      </div>
+      <div class="trust-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Sin suscripciones</div>
+      <div class="trust-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Tus datos son tuyos</div>
+      <div class="trust-chip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Todo en una sola app</div>
+      <div class="trust-chip" style="border-right:none"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Gratis para empezar</div>
     </div>
   </div>
 </div>
+
+<!-- DOLOR / SOLUCIÓN -->
+<section class="section pain-section">
+  <div class="container">
+    <div class="pain-grid">
+      <div class="pain-before">
+        <div class="pain-kicker">¿Te suena familiar?</div>
+        <ul class="pain-list">
+          <li><span class="pain-x">✕</span> Word para escribir</li>
+          <li><span class="pain-x">✕</span> Excel o Notion para organizar personajes</li>
+          <li><span class="pain-x">✕</span> Una carpeta llena de imágenes de referencia</li>
+          <li><span class="pain-x">✕</span> Un mapa dibujado a mano que nunca encuentras</li>
+          <li><span class="pain-x">✕</span> Fichas de personajes sueltas en PDF</li>
+        </ul>
+      </div>
+      <div class="pain-arrow">→</div>
+      <div class="pain-after">
+        <div class="pain-after-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <p class="pain-after-text">Havora reúne todo eso en un solo lugar.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- CÓMO FUNCIONA -->
 <section class="section" id="como-funciona">
@@ -459,7 +487,7 @@ footer{background:var(--sidebar);padding:32px 0}
   <div class="container">
     <div class="section-label">Características</div>
     <h2 class="section-title">Todo lo que necesitas, nada que sobre</h2>
-    <p class="section-sub">Diseñado para escritores que quieren herramientas serias sin la curva de aprendizaje de Scrivener ni la dispersión de tener diez archivos abiertos.</p>
+    <p class="section-sub">Herramientas serias, sin curva de aprendizaje eterna ni diez archivos abiertos a la vez.</p>
 
     <div class="showcase">
 
@@ -468,19 +496,15 @@ footer{background:var(--sidebar);padding:32px 0}
         <div class="showcase-text">
           <div class="kicker">Manuscrito</div>
           <h3>Nunca vuelvas a perder el hilo de tu historia</h3>
-          <p>Organiza tu novela por capítulos, asigna estados (Borrador, Revisión, Listo) y escribe con todas las herramientas a un clic — sin perder el foco en el texto.</p>
+          <p>Capítulos con estados, corrector ortográfico y todas las herramientas a un clic — sin perder el foco en el texto.</p>
           <ul class="showcase-list">
-            <li>Modo Zen: pantalla completa sin distracciones</li>
-            <li>Corrector ortográfico offline en español e inglés</li>
-            <li>Historial de versiones por capítulo</li>
-            <li>Meta de palabras con barra de progreso en tiempo real</li>
+            <li>Historial de versiones: nunca pierdes una reescritura</li>
             <li>Vista Tablero (corkboard) con sinopsis editable</li>
-            <li>Enlaza cualquier fragmento de texto a una escena, directo desde el editor</li>
-            <li>Importar .docx y .md directamente</li>
+            <li>Enlaza cualquier fragmento de texto a una escena</li>
           </ul>
         </div>
         <div class="showcase-img">
-          <img src="assets/wf-editor.png" class="zoomable" alt="Editor de manuscrito Havora con panel de comentarios">
+          <img src="assets/wf-editor.webp" class="zoomable" alt="Editor de manuscrito Havora con panel de comentarios">
         </div>
       </div>
 
@@ -488,18 +512,16 @@ footer{background:var(--sidebar);padding:32px 0}
       <div class="showcase-item flip">
         <div class="showcase-text">
           <div class="kicker">Modo Zen</div>
-          <h3>Escribe sin distracciones, solo tú y la página en blanco</h3>
-          <p>Activa el modo Zen y desaparece todo menos el texto. Sin barras, sin notificaciones, sin ruido visual — solo la lista de capítulos y tus palabras.</p>
+          <h3>Solo tú, la página en blanco y tus palabras</h3>
+          <p>Activa el modo Zen y desaparece todo menos el texto: sin barras, sin notificaciones, sin ruido visual.</p>
           <ul class="showcase-list">
-            <li>Pantalla completa sin distracciones</li>
-            <li>Estados de capítulo: Borrador, Revisión, Listo</li>
             <li>Meta de palabras visible en tiempo real</li>
             <li>Sprint de escritura cronometrado</li>
             <li>Panel de comentarios anclados al párrafo</li>
           </ul>
         </div>
         <div class="showcase-img">
-          <img src="assets/wf-zen.png" class="zoomable" alt="Havora — modo zen, escritura sin distracciones">
+          <img src="assets/wf-zen.webp" class="zoomable" alt="Havora — modo zen, escritura sin distracciones">
         </div>
       </div>
 
@@ -508,17 +530,15 @@ footer{background:var(--sidebar);padding:32px 0}
         <div class="showcase-text">
           <div class="kicker">Seguimiento y productividad</div>
           <h3>Mantén el impulso día tras día</h3>
-          <p>Un panel de estadísticas que te muestra tu progreso real: palabras escritas, racha diaria, heatmap anual y KPIs del manuscrito. Escribir con datos, no con suposiciones.</p>
+          <p>Un panel que te muestra tu progreso real: palabras escritas, racha diaria y ritmo por capítulo. Escribir con datos, no con suposiciones.</p>
           <ul class="showcase-list">
             <li>Mapa anual de escritura (heatmap 52 × 7)</li>
             <li>Racha diaria y meta de palabras configurable</li>
-            <li>KPIs: palabras, capítulos, tiempo de lectura estimado</li>
             <li>Gráfico de progreso acumulado (365 días)</li>
-            <li>Sprint de escritura cronometrado con cuenta atrás</li>
           </ul>
         </div>
         <div class="showcase-img">
-          <img src="assets/wf-stats.png" class="zoomable" alt="Estadísticas de escritura Havora — ritmo por capítulo">
+          <img src="assets/wf-stats.webp" class="zoomable" alt="Estadísticas de escritura Havora — ritmo por capítulo">
         </div>
       </div>
 
@@ -527,17 +547,15 @@ footer{background:var(--sidebar);padding:32px 0}
         <div class="showcase-text">
           <div class="kicker">Personajes</div>
           <h3>Conoce a cada personaje hasta el último detalle</h3>
-          <p>Las fichas de personaje reúnen todo lo que necesitas saber: descripción física, personalidad, historia, relaciones, arco narrativo y notas privadas del autor. Foto de perfil, sprite para el mapa y seguimiento del estado (vivo, muerto, desaparecido) incluidos.</p>
+          <p>Física, personalidad, historia, relaciones y arco narrativo — todo en una ficha, con foto de perfil y sprite para el mapa.</p>
           <ul class="showcase-list">
-            <li>Ficha completa: física, personalidad, historia y motivaciones</li>
-            <li>Foto de perfil y sprite personalizable para el mapa</li>
             <li>Arco narrativo con estado: Activo, Muerto, Desaparecido…</li>
             <li>Referencias automáticas: el nombre en el manuscrito activa la ficha</li>
             <li>Notas privadas del autor excluidas de exportaciones</li>
           </ul>
         </div>
         <div class="showcase-img">
-          <img src="assets/wf-personaje.png" class="zoomable" alt="Ficha de personaje en Havora">
+          <img src="assets/wf-personaje.webp" class="zoomable" alt="Ficha de personaje en Havora">
         </div>
       </div>
 
@@ -546,17 +564,15 @@ footer{background:var(--sidebar);padding:32px 0}
         <div class="showcase-text">
           <div class="kicker">Escenas</div>
           <h3>Planifica cada escena antes de escribirla</h3>
-          <p>Cada escena reúne qué personajes aparecen, en qué locación, con qué punto de vista y a qué subtrama pertenece — y se asigna directo a un capítulo del manuscrito. Cuando algo no cuadra con lo que ya escribiste, lo ves aquí antes de que llegue al lector.</p>
+          <p>Personajes, locación, POV y subtrama de cada escena — asignada directo a un capítulo. Lo que no cuadra, lo ves aquí antes que el lector.</p>
           <ul class="showcase-list">
-            <li>Personajes, locación, POV y subtrama por escena</li>
-            <li>Tipos de escena configurables: Acción, Revelación, Flashback, Transición…</li>
+            <li>Tipos de escena configurables: Acción, Revelación, Flashback…</li>
             <li>Asignación directa a capítulos del manuscrito</li>
-            <li>Filtro de escenas por subtrama</li>
             <li>Vista Timeline para ver el orden narrativo de un vistazo</li>
           </ul>
         </div>
         <div class="showcase-img">
-          <img src="assets/wf-escena.png" class="zoomable" alt="Ficha de escena en Havora">
+          <img src="assets/wf-escena.webp" class="zoomable" alt="Ficha de escena en Havora">
         </div>
       </div>
 
@@ -565,17 +581,15 @@ footer{background:var(--sidebar);padding:32px 0}
         <div class="showcase-text">
           <div class="kicker">Locaciones</div>
           <h3>Cada lugar de tu mundo, documentado al detalle</h3>
-          <p>Las locaciones son fichas completas con galería de imágenes, descripción de ambiente, personajes que las frecuentan y escenas que ocurren en ellas. Todo enlazado al mapa interactivo para que nunca pierdas la coherencia geográfica.</p>
+          <p>Fichas con galería, ambiente, personajes que las frecuentan y escenas vinculadas — enlazadas al mapa para que nunca pierdas la coherencia geográfica.</p>
           <ul class="showcase-list">
             <li>Ficha de locación con galería, descripción y atmósfera</li>
             <li>Personajes y escenas enlazados a cada lugar</li>
-            <li>Tipo de locación: ciudad, bosque, ruina, templo…</li>
             <li>Conectadas al mapa interactivo</li>
-            <li>Buscador global las encuentra al instante</li>
           </ul>
         </div>
         <div class="showcase-img">
-          <img src="assets/wf-locaciones.png" class="zoomable" alt="Ficha de locación en Havora">
+          <img src="assets/wf-locaciones.webp" class="zoomable" alt="Ficha de locación en Havora">
         </div>
       </div>
 
@@ -584,17 +598,15 @@ footer{background:var(--sidebar);padding:32px 0}
         <div class="showcase-text">
           <div class="kicker">Wiki</div>
           <h3>La enciclopedia viva de tu universo</h3>
-          <p>La Wiki es el lugar donde vive todo lo que no encaja en una ficha estándar: culturas, sistemas de magia, idiomas, religiones, objetos únicos, historia del mundo. Con secciones enteramente libres, tú decides qué documentar y cómo estructurarlo.</p>
+          <p>El lugar para todo lo que no encaja en una ficha estándar: magia, culturas, idiomas, objetos únicos. Tú decides qué documentar y cómo.</p>
           <ul class="showcase-list">
-            <li>Entradas de cualquier categoría: magia, cultura, historia…</li>
             <li>Secciones libres: sin campos fijos ni formularios rígidos</li>
             <li>Galería de imágenes por entrada</li>
             <li>Referencias cruzadas a personajes, locaciones y escenas</li>
-            <li>Integrada en el buscador global de la app</li>
           </ul>
         </div>
         <div class="showcase-img">
-          <img src="assets/wf-wiki.png" class="zoomable" alt="Wiki del universo en Havora">
+          <img src="assets/wf-wiki.webp" class="zoomable" alt="Wiki del universo en Havora">
         </div>
       </div>
 
@@ -602,18 +614,16 @@ footer{background:var(--sidebar);padding:32px 0}
       <div class="showcase-item flip">
         <div class="showcase-text">
           <div class="kicker">Mapa interactivo</div>
-          <h3>Construye el mundo que tus personajes habitan</h3>
-          <p>Dibuja el mapa de tu mundo con capas personalizadas, ubica personajes y locaciones, y calcula distancias y tiempos de viaje para que tu historia sea coherente.</p>
+          <h3>Haz que tu mundo tenga sentido para el lector</h3>
+          <p>Dibuja el mapa con capas, ubica personajes y locaciones, y calcula distancias y tiempos de viaje reales.</p>
           <ul class="showcase-list">
             <li>Canvas interactivo con zoom y capas</li>
-            <li>Sprites de personajes, locaciones, templos y más</li>
             <li>Cálculo automático de distancias y tiempos</li>
-            <li>Agrupación de sprites por época: Medieval, Actual, Futurista…</li>
             <li>Marcadores enlazados a fichas de personaje y locación</li>
           </ul>
         </div>
         <div class="showcase-img">
-          <img src="assets/wf-mapa.png" class="zoomable" alt="Mapa interactivo Havora">
+          <img src="assets/wf-mapa.webp" class="zoomable" alt="Mapa interactivo Havora">
         </div>
       </div>
 
@@ -622,17 +632,15 @@ footer{background:var(--sidebar);padding:32px 0}
         <div class="showcase-text">
           <div class="kicker">Relaciones y árbol genealógico</div>
           <h3>Evita contradicciones familiares antes de publicar</h3>
-          <p>El gráfico de relaciones muestra las conexiones entre personajes con tipos personalizables y descripción libre en cada vínculo. El árbol genealógico construye la línea de sangre de cada personaje o familia, generación a generación. Tener esto organizado te evita contradicciones invisibles que arruinan la coherencia de la historia.</p>
+          <p>Gráfico de relaciones con tipos personalizables y árbol genealógico generación a generación. Organizado así, no se te escapa una contradicción de sangre.</p>
           <ul class="showcase-list">
             <li>Gráfico interactivo con tipos de relación y colores</li>
-            <li>Descripción libre en cada conexión</li>
             <li>Árbol genealógico por personaje con varias generaciones</li>
             <li>Filtra el gráfico por personaje para no saturarte</li>
-            <li>Detecta contradicciones antes de que lleguen al lector</li>
           </ul>
         </div>
         <div class="showcase-img">
-          <img src="assets/wf-relaciones.png" class="zoomable" alt="Gráfico de relaciones y árbol genealógico en Havora">
+          <img src="assets/wf-relaciones.webp" class="zoomable" alt="Gráfico de relaciones y árbol genealógico en Havora">
         </div>
       </div>
 
@@ -640,18 +648,16 @@ footer{background:var(--sidebar);padding:32px 0}
       <div class="showcase-item flip">
         <div class="showcase-text">
           <div class="kicker">Cronología</div>
-          <h3>Una línea de tiempo para que tu historia sea coherente</h3>
-          <p>Ubica cada evento importante del mundo y de la trama en una línea de tiempo con tu propio calendario: meses, estaciones y eras configurables. Filtra por personaje o subtrama y detecta conflictos de fechas antes de que un lector los note.</p>
+          <h3>Nunca volverás a preguntarte si un personaje murió antes de tiempo</h3>
+          <p>Ubica cada evento en una línea de tiempo con tu propio calendario, y detecta conflictos de fechas antes de que un lector los note.</p>
           <ul class="showcase-list">
-            <li>Eventos con fecha, personajes y locaciones vinculados</li>
             <li>Calendario propio: meses, estaciones y eras del mundo</li>
             <li>Filtro por personaje, subtrama o rango de años</li>
-            <li>Vistas por años, meses, días y clima</li>
             <li>Detecta conflictos cronológicos automáticamente</li>
           </ul>
         </div>
         <div class="showcase-img">
-          <img src="assets/wf-crono.png" class="zoomable" alt="Cronología del mundo en Havora">
+          <img src="assets/wf-crono.webp" class="zoomable" alt="Cronología del mundo en Havora">
         </div>
       </div>
 
@@ -660,17 +666,15 @@ footer{background:var(--sidebar);padding:32px 0}
         <div class="showcase-text">
           <div class="kicker">Worldbuilding configurable</div>
           <h3>Ajusta las reglas del mundo a tu género y estilo</h3>
-          <p>Havora no impone una estructura rígida. Define tus propios tipos de personaje, categorías de relación, tipos de escena y los meses de tu propio calendario — para que la herramienta encaje perfectamente en tu mundo, no al revés. Una fantasía épica, una space opera o un thriller contemporáneo tienen necesidades distintas.</p>
+          <p>Havora no impone una estructura rígida. Define tipos de personaje, relación, escena y tu propio calendario — para que la herramienta encaje en tu mundo, no al revés.</p>
           <ul class="showcase-list">
-            <li>Tipos de personaje: Protagonista, Antagonista, Guardián, Rival…</li>
+            <li>Tipos de personaje: Protagonista, Antagonista, Guardián…</li>
             <li>Tipos de relación personalizables con color e ícono</li>
             <li>Calendario propio: meses, años y eras del mundo</li>
-            <li>Tipos de escena: Acción, Revelación, Flashback, Transición…</li>
-            <li>Grupos de personajes con colores diferenciadores</li>
           </ul>
         </div>
         <div class="showcase-img">
-          <img src="assets/wf-configuracion.png" class="zoomable" alt="Configuración de worldbuilding en Havora">
+          <img src="assets/wf-configuracion.webp" class="zoomable" alt="Configuración de worldbuilding en Havora">
         </div>
       </div>
 
@@ -679,17 +683,15 @@ footer{background:var(--sidebar);padding:32px 0}
         <div class="showcase-text">
           <div class="kicker">Todo conectado</div>
           <h3>Escribe y tu mundo aparece cuando lo necesitas</h3>
-          <p>Mientras escribes, los nombres de personajes y locaciones se convierten en referencias activas que puedes consultar sin salir del capítulo. Y desde el buscador general encuentras cualquier dato en toda la app — fragmentos del manuscrito, fichas, wiki, escenas — en un solo campo, al instante.</p>
+          <p>Los nombres de personajes y locaciones se vuelven referencias activas mientras escribes. Y el buscador general encuentra cualquier dato de la app en un solo campo.</p>
           <ul class="showcase-list">
-            <li>Referencias automáticas a personajes y locaciones en el editor</li>
             <li>Accede a la ficha del personaje sin salir del capítulo</li>
-            <li>Buscador global: encuentra cualquier cosa en toda la app</li>
-            <li>Busca en manuscrito, fichas, wiki, escenas y tablas a la vez</li>
+            <li>Buscador global: manuscrito, fichas, wiki y escenas a la vez</li>
             <li>Detecta inconsistencias entre lo escrito y lo planificado</li>
           </ul>
         </div>
         <div class="showcase-img">
-          <img src="assets/wf-buscador.png" class="zoomable" alt="Buscador general de Havora">
+          <img src="assets/wf-buscador.webp" class="zoomable" alt="Buscador general de Havora">
         </div>
       </div>
 
@@ -834,95 +836,21 @@ footer{background:var(--sidebar);padding:32px 0}
 <!-- COMPARATIVA -->
 <section class="section" id="comparativa">
   <div class="container">
-    <div class="section-label">Comparativa</div>
-    <h2 class="section-title">¿Por qué Havora?</h2>
-    <p class="section-sub">Las herramientas genéricas no están diseñadas para ficción. Havora, sí.</p>
-    <div class="compare-wrap">
-      <table class="compare-table">
-        <thead>
-          <tr>
-            <th>Característica</th>
-            <th style="color:var(--accent)">Havora</th>
-            <th>Word / 365</th>
-            <th>Google Docs</th>
-            <th>Scrivener</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Gratis para empezar</td>
-            <td class="col-wf c-yes">✓</td>
-            <td class="c-no">✗</td>
-            <td class="c-yes">✓</td>
-            <td class="c-no">✗</td>
-          </tr>
-          <tr>
-            <td>100% offline</td>
-            <td class="col-wf c-yes">✓</td>
-            <td class="c-yes">✓</td>
-            <td class="c-par">Parcial</td>
-            <td class="c-yes">✓</td>
-          </tr>
-          <tr>
-            <td>Fichas de personajes</td>
-            <td class="col-wf c-yes">✓</td>
-            <td class="c-no">✗</td>
-            <td class="c-no">✗</td>
-            <td class="c-par">Básico</td>
-          </tr>
-          <tr>
-            <td>Mapa interactivo</td>
-            <td class="col-wf c-yes">✓</td>
-            <td class="c-no">✗</td>
-            <td class="c-no">✗</td>
-            <td class="c-no">✗</td>
-          </tr>
-          <tr>
-            <td>Árbol genealógico</td>
-            <td class="col-wf c-yes">✓</td>
-            <td class="c-no">✗</td>
-            <td class="c-no">✗</td>
-            <td class="c-no">✗</td>
-          </tr>
-          <tr>
-            <td>Gráfico de relaciones</td>
-            <td class="col-wf c-yes">✓</td>
-            <td class="c-no">✗</td>
-            <td class="c-no">✗</td>
-            <td class="c-no">✗</td>
-          </tr>
-          <tr>
-            <td>Corrector ortográfico offline</td>
-            <td class="col-wf c-yes">✓</td>
-            <td class="c-yes">✓</td>
-            <td class="c-no">✗</td>
-            <td class="c-no">✗</td>
-          </tr>
-          <tr>
-            <td>Asistente de IA integrado</td>
-            <td class="col-wf c-yes">✓</td>
-            <td class="c-par">Copilot</td>
-            <td class="c-par">Gemini</td>
-            <td class="c-no">✗</td>
-          </tr>
-          <tr>
-            <td>Exportación a EPUB</td>
-            <td class="col-wf c-par">Premium</td>
-            <td class="c-no">✗</td>
-            <td class="c-no">✗</td>
-            <td class="c-yes">✓</td>
-          </tr>
-          <tr>
-            <td>Precio</td>
-            <td class="col-wf" style="color:var(--accent)">Gratis · $39 único</td>
-            <td class="c-par">$9.99/mes</td>
-            <td class="c-yes">Gratis</td>
-            <td class="c-par">$59.99 único</td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="section-label">Con Havora</div>
+    <h2 class="section-title">Todo lo que una historia necesita, en un solo lugar</h2>
+    <p class="section-sub">Nada de herramientas genéricas adaptadas a la fuerza. Havora está hecho para ficción desde el primer día.</p>
+    <div class="check-grid">
+      <div class="check-item"><i>✓</i> Todo conectado: manuscrito, personajes y mundo</div>
+      <div class="check-item"><i>✓</i> 100% offline, sin depender de internet</div>
+      <div class="check-item"><i>✓</i> Sin suscripción — pago único, de por vida</div>
+      <div class="check-item"><i>✓</i> Asistente de IA, 100% opcional</div>
+      <div class="check-item"><i>✓</i> Mapa interactivo con distancias reales</div>
+      <div class="check-item"><i>✓</i> Cronología con detección de conflictos</div>
+      <div class="check-item"><i>✓</i> Gráfico de relaciones y árbol genealógico</div>
+      <div class="check-item"><i>✓</i> Worldbuilding configurable a tu género</div>
+      <div class="check-item"><i>✓</i> Corrector ortográfico offline (ES / EN)</div>
+      <div class="check-item"><i>✓</i> Tus datos, siempre en tu equipo</div>
     </div>
-    <p class="compare-note">Comparativa orientativa. Precios y características de terceros sujetos a cambio.</p>
   </div>
 </section>
 
@@ -1057,7 +985,7 @@ footer{background:var(--sidebar);padding:32px 0}
           ¿Hay versión para Mac o Linux?
           <svg class="faq-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
-        <div class="faq-a"><p>Actualmente Havora solo está disponible para <strong>Windows 10 y 11</strong>. Las versiones para Mac y Linux están en la hoja de ruta y se anunciarán en cuanto estén disponibles.</p></div>
+        <div class="faq-a"><p>Havora está disponible para <strong>Windows 10 y 11</strong>.</p></div>
       </div>
 
       <div class="faq-item">
@@ -1199,7 +1127,7 @@ footer{background:var(--sidebar);padding:32px 0}
     <h2>Tu historia tiene un<br><em>mundo entero</em> esperando.</h2>
     <p>Construye tu primer mundo en cinco minutos. Sin cuenta, sin tarjeta, sin plazo.</p>
     <a href="https://github.com/havorawb/havora/releases/download/v1.1.2/HavoraSetup-1.1.2.exe" class="btn-primary" onclick="trackDownload()">
-      ⬇ Empieza tu primera novela gratis
+      ⬇ Descargar Havora — empieza hoy
     </a>
     <div class="cta-footnote">Windows 10 / 11 · Sin cuenta · Sin tarjeta de crédito</div>
     <p class="cta-discount-note" id="ctaDiscountNote"></p>
