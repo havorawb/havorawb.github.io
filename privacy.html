@@ -76,10 +76,10 @@ footer{background:var(--sidebar);padding:32px 0}
 <div class="doc">
   <div class="doc-eyebrow">Legal</div>
   <h1 class="doc-title">Política de privacidad</h1>
-  <p class="doc-updated">Última actualización: 17 de julio de 2026</p>
+  <p class="doc-updated">Última actualización: 7 de septiembre de 2026</p>
 
   <div class="doc-note">
-    Havora es una aplicación de escritorio que funciona localmente en tu equipo. No recopilamos datos de uso, no rastreamos tu actividad ni vendemos información a terceros.
+    Havora es una aplicación de escritorio: tu contenido creativo se guarda siempre en tu equipo, nunca en nuestros servidores. Usamos una señal anónima de uso (ver punto 2.4) para saber cuánta gente usa la app — nunca vendemos tu información a terceros.
   </div>
 
   <h2>1. Qué datos se almacenan y dónde</h2>
@@ -110,11 +110,21 @@ footer{background:var(--sidebar);padding:32px 0}
   </ul>
 
   <h2>2.3 Verificación de actualizaciones</h2>
-  <p>Al iniciar la aplicación, Havora consulta la API pública de GitHub para verificar si existe una versión más nueva. Esta petición no incluye datos personales ni identificadores de usuario — solo compara números de versión.</p>
+  <p>Al iniciar la aplicación, Havora consulta la API pública de GitHub para verificar si existe una versión más nueva. Esta petición no incluye datos personales ni identificadores de usuario — solo compara números de versión. (Si instalaste Havora desde la Microsoft Store, este paso no aplica: las actualizaciones las entrega Windows directamente.)</p>
+
+  <h2>2.4 Analítica de uso anónima</h2>
+  <p>Al iniciar la aplicación, Havora envía una señal breve a nuestro servidor para saber cuánta gente la usa y qué versión. Incluye:</p>
+  <ul>
+    <li>Un identificador al azar generado una sola vez por instalación — no se deriva de tu nombre ni de datos de tu equipo, solo sirve para no contar dos veces la misma instalación.</li>
+    <li>La versión de Havora y el sistema operativo.</li>
+    <li>Si tu cuenta es gratuita o Premium.</li>
+    <li>Tu país, a partir de la ubicación de la red — no guardamos tu dirección IP.</li>
+  </ul>
+  <p>Si completaste tu nombre y correo en Configuración → Perfil, esos dos datos viajan también junto con la señal, para poder identificarte si escribís a soporte. Son privados: solo los ve el equipo de Havora, nunca se publican ni se comparten con terceros, y se conservan hasta 90 días. Podés dejar el Perfil vacío sin que eso afecte ninguna función de la app.</p>
 
   <h2>3. Datos que NO recopilamos</h2>
   <ul>
-    <li>No existe telemetría ni análisis de uso.</li>
+    <li>No identificamos quién sos a partir de la analítica de uso, salvo que vos mismo completes tu Perfil (ver 2.4).</li>
     <li>No se registran errores o bloqueos en servidores externos.</li>
     <li>No usamos cookies ni tecnologías de rastreo.</li>
     <li>No compartimos ningún dato con terceros salvo los descritos en el punto 2.</li>
