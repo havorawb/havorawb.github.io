@@ -66,6 +66,25 @@ nav{background:var(--sidebar);border-bottom:1px solid rgba(255,255,255,.06);padd
 .hero-actions .btn-primary{font-size:1rem;padding:13px 28px}
 .btn-outline{color:var(--text2);font-size:.9rem;font-weight:500;padding:12px 18px;border-radius:7px;border:1px solid var(--border);transition:all .15s;text-decoration:none;display:inline-flex;align-items:center}
 .btn-outline:hover{color:var(--text);border-color:var(--muted)}
+/* Badge oficial "Consíguelo en Microsoft Store" — reemplaza la descarga directa del .exe como
+   única forma de instalar Havora (pedido real: "elimina el boton de descarga directa y dale mas
+   enfasis a que se descarga por la store de microsoft"). El badge ya trae su propio fondo/marco, así
+   que no se envuelve en .btn-primary/.btn-outline (se vería un botón dentro de otro) — crece un
+   poco al hover, con la misma sombra de acento que .btn-primary para que siga leyéndose como LA
+   acción principal. Dos variantes oficiales (fondo oscuro para fondo claro, y viceversa) alternan
+   con el mismo criterio de 3 casos que ya usan los tokens de color de arriba (sistema/explícito). */
+.ms-badge-link{display:inline-flex;border-radius:7px;transition:transform .15s,box-shadow .15s}
+.ms-badge-link:hover{transform:translateY(-1px);box-shadow:0 6px 16px color-mix(in srgb,var(--accent) 35%,transparent)}
+.ms-badge-dark{display:inline-block}
+.ms-badge-light{display:none}
+@media(prefers-color-scheme:dark){
+  :root:not([data-theme=light]) .ms-badge-dark{display:none}
+  :root:not([data-theme=light]) .ms-badge-light{display:inline-block}
+}
+:root[data-theme=dark] .ms-badge-dark{display:none}
+:root[data-theme=dark] .ms-badge-light{display:inline-block}
+:root[data-theme=light] .ms-badge-dark{display:inline-block}
+:root[data-theme=light] .ms-badge-light{display:none}
 .hero-footnote{display:flex;justify-content:center;gap:22px;flex-wrap:wrap;font-size:.78rem;color:var(--muted);margin-bottom:56px}
 .hero-footnote span::before{content:'✓ ';color:var(--accent);font-weight:700}
 /* hero screenshot area */
@@ -277,27 +296,8 @@ nav{background:var(--sidebar);border-bottom:1px solid rgba(255,255,255,.06);padd
 .faq-a p{font-size:.875rem;color:var(--text2);line-height:1.75}
 .faq-a li{font-size:.875rem;color:var(--text2);line-height:1.6}
 
-/* ── SMARTSCREEN ── */
-.install-intro{font-size:.9rem;color:var(--text2);max-width:580px;margin-bottom:40px;line-height:1.75}
-.install-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:32px}
-.install-step-num{font-size:.68rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
-.install-step-label{font-size:.92rem;font-weight:600;color:var(--text);margin-bottom:14px}
-.install-step-note{font-size:.8rem;color:var(--muted);margin-top:12px;line-height:1.5}
-.ss-dialog{background:#1b1b2e;border-radius:8px;overflow:hidden;border:1px solid #2d2d44;max-width:380px;font-family:'Segoe UI',system-ui,sans-serif;box-shadow:0 8px 32px rgba(0,0,0,.35)}
-.ss-titlebar{background:#2d2d44;padding:8px 14px;font-size:.73rem;color:rgba(255,255,255,.5);display:flex;align-items:center;gap:8px}
-.ss-titlebar-dot{width:9px;height:9px;border-radius:50%}
-.ss-body{padding:22px 24px}
-.ss-row{display:flex;align-items:flex-start;gap:14px;margin-bottom:16px}
-.ss-shield-wrap{flex-shrink:0;width:40px;height:40px;background:#1e4db7;border-radius:50%;display:flex;align-items:center;justify-content:center}
-.ss-text-title{color:#fff;font-size:.9rem;font-weight:600;margin-bottom:4px}
-.ss-text-body{color:rgba(255,255,255,.55);font-size:.78rem;line-height:1.5}
-.ss-buttons{display:flex;flex-direction:column;gap:8px;margin-top:18px}
-.ss-btn{padding:8px 16px;border-radius:4px;font-size:.82rem;font-weight:500;text-align:center;cursor:default}
-.ss-btn-ghost{background:transparent;border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.75)}
-.ss-btn-green{background:#107c10;color:#fff}
-.ss-link{color:#4ea6f0;font-size:.82rem;text-decoration:underline;cursor:default;margin-top:6px;display:inline-block}
-.install-note{margin-top:32px;background:color-mix(in srgb,var(--accent) 8%,transparent);border:1px solid color-mix(in srgb,var(--accent) 20%,transparent);border-radius:var(--r);padding:18px 22px;font-size:.84rem;color:var(--text2);line-height:1.6}
-.install-note strong{color:var(--text)}
+/* SmartScreen/instalación directa: sección eliminada (pedido real: "saca la parte de smartscreen
+   de la pagina" — ya no hace falta explicar el aviso de Windows, la Store no lo dispara nunca). */
 
 /* ── CTA FINAL ── */
 .cta-final{background:var(--sidebar);padding:100px 0;text-align:center;border-bottom:none}
@@ -389,8 +389,8 @@ footer{background:var(--sidebar);padding:32px 0}
       <a href="#comparativa" class="btn-nav hide-mobile">Comparativa</a>
       <a href="#planes" class="btn-nav hide-mobile">Planes</a>
       <a href="#faq" class="btn-nav hide-mobile">FAQ</a>
-      <a href="https://github.com/havorawb/havora/releases/download/v1.6.0/HavoraSetup-1.6.0.exe" class="btn-primary" onclick="trackDownload()">
-        ⬇ Descargar
+      <a href="https://apps.microsoft.com/detail/9NND2741FJHK" class="btn-primary" target="_blank" rel="noopener" onclick="trackDownload()">
+        🪟 Microsoft Store
       </a>
     </div>
   </div>
@@ -408,10 +408,10 @@ footer{background:var(--sidebar);padding:32px 0}
       <p class="hero-claim">Todo tu mundo, tus personajes y tu manuscrito en un solo lugar.</p>
       <p class="hero-sub">Sin cuenta, sin nube, sin pagos recurrentes — tus historias, siempre tuyas.</p>
       <div class="hero-actions">
-        <a href="https://github.com/havorawb/havora/releases/download/v1.6.0/HavoraSetup-1.6.0.exe" class="btn-primary" onclick="trackDownload()">
-          ⬇ Descargar Havora gratis
+        <a href="https://apps.microsoft.com/detail/9NND2741FJHK" class="ms-badge-link" target="_blank" rel="noopener" onclick="trackDownload()">
+          <img src="assets/ms-badge-dark.svg" class="ms-badge-dark" alt="Consíguelo en Microsoft Store" width="216" height="59">
+          <img src="assets/ms-badge-light.svg" class="ms-badge-light" alt="Consíguelo en Microsoft Store" width="216" height="59">
         </a>
-        <a href="https://apps.microsoft.com/detail/9NND2741FJHK" class="btn-outline" target="_blank" rel="noopener" onclick="trackDownload()">🪟 Microsoft Store</a>
         <a href="#como-funciona" class="btn-outline">Ver cómo funciona →</a>
       </div>
       <div class="hero-footnote">
@@ -923,8 +923,8 @@ footer{background:var(--sidebar);padding:32px 0}
           <li class="dim">Exportación a DOCX, EPUB y ODT</li>
           <li class="dim">Sin límites de contenido</li>
         </ul>
-        <a href="https://github.com/havorawb/havora/releases/download/v1.6.0/HavoraSetup-1.6.0.exe"
-           class="btn-outline" style="width:100%;justify-content:center" onclick="trackDownload()">Descargar gratis</a>
+        <a href="https://apps.microsoft.com/detail/9NND2741FJHK"
+           class="btn-outline" style="width:100%;justify-content:center" target="_blank" rel="noopener" onclick="trackDownload()">🪟 Obtener en Microsoft Store</a>
       </div>
 
       <div class="plan-card featured">
@@ -1070,86 +1070,6 @@ footer{background:var(--sidebar);padding:32px 0}
   </div>
 </section>
 
-<!-- INSTALACIÓN / SMARTSCREEN -->
-<section class="section" id="instalacion">
-  <div class="container">
-    <div class="section-label">Instalación segura</div>
-    <h2 class="section-title">¿Por qué aparece un aviso de Windows?</h2>
-    <p class="install-intro">
-      Windows SmartScreen muestra una advertencia cuando ejecutas una aplicación que todavía no tiene
-      suficientes descargas registradas — es un proceso normal para apps nuevas. Havora no contiene
-      malware. Solo necesitas dos clics para continuar:
-    </p>
-    <div class="install-note" style="margin-bottom:28px">
-      <strong>¿Preferís evitarlo directamente?</strong> Instalando Havora desde la
-      <a href="https://apps.microsoft.com/detail/9NND2741FJHK" target="_blank" rel="noopener" onclick="trackDownload()">Microsoft Store</a>
-      no aparece ningún aviso de SmartScreen — Windows instala y actualiza la app solo, en segundo plano.
-    </div>
-    <div class="install-steps">
-
-      <div>
-        <div class="install-step-num">Paso 1</div>
-        <div class="install-step-label">Haz clic en <strong>"Más información"</strong></div>
-        <div class="ss-dialog">
-          <div class="ss-titlebar">
-            <div class="ss-titlebar-dot" style="background:#ff5f57"></div>
-            <div class="ss-titlebar-dot" style="background:#febc2e"></div>
-            <div class="ss-titlebar-dot" style="background:#28c840"></div>
-            <span style="margin-left:6px">Windows protegió su PC</span>
-          </div>
-          <div class="ss-body">
-            <div class="ss-row">
-              <div class="ss-shield-wrap">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-              </div>
-              <div>
-                <div class="ss-text-title">Windows protegió su PC</div>
-                <div class="ss-text-body" style="color:rgba(255,255,255,.65)">SmartScreen de Microsoft Defender evitó que se iniciara una aplicación desconocida. Ejecutar esta aplicación puede suponer un riesgo para tu PC.</div>
-              </div>
-            </div>
-            <div class="ss-buttons">
-              <div class="ss-btn ss-btn-ghost">No ejecutar</div>
-            </div>
-            <div class="ss-link"><span style="color:#4ea6f0;font-weight:700;margin-right:3px">→</span> Más información</div>
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <div class="install-step-num">Paso 2</div>
-        <div class="install-step-label">Haz clic en <strong>"Ejecutar de todas formas"</strong></div>
-        <div class="ss-dialog">
-          <div class="ss-titlebar">
-            <div class="ss-titlebar-dot" style="background:#ff5f57"></div>
-            <div class="ss-titlebar-dot" style="background:#febc2e"></div>
-            <div class="ss-titlebar-dot" style="background:#28c840"></div>
-            <span style="margin-left:6px">Windows protegió su PC</span>
-          </div>
-          <div class="ss-body">
-            <div class="ss-row">
-              <div class="ss-shield-wrap">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              </div>
-              <div>
-                <div class="ss-text-title">HavoraSetup-1.6.0.exe</div>
-                <div class="ss-text-body">Editor: <strong style="color:rgba(255,255,255,.8)">havorawb</strong></div>
-              </div>
-            </div>
-            <div class="ss-buttons">
-              <div class="ss-btn ss-btn-green"><span style="font-weight:700;margin-right:4px">→</span> Ejecutar de todas formas</div>
-              <div class="ss-btn ss-btn-ghost">No ejecutar</div>
-            </div>
-          </div>
-        </div>
-        <div class="install-step-note">La instalación continuará normalmente. Tus proyectos y datos quedan solo en tu equipo.</div>
-      </div>
-
-    </div>
-    <div class="install-note">
-      <strong>¿Por qué ocurre esto?</strong> SmartScreen construye reputación por número de descargas — las apps nuevas siempre lo muestran, independientemente de si son seguras o no. A medida que más usuarios descarguen Havora, el aviso desaparecerá automáticamente.
-    </div>
-  </div>
-</section>
 
 <!-- CTA FINAL -->
 <section class="cta-final">
@@ -1157,8 +1077,8 @@ footer{background:var(--sidebar);padding:32px 0}
     <div class="eyebrow">Empieza hoy</div>
     <h2>Tu historia tiene un<br><em>mundo entero</em> esperando.</h2>
     <p>Construye tu primer mundo en cinco minutos. Sin cuenta, sin tarjeta, sin plazo.</p>
-    <a href="https://github.com/havorawb/havora/releases/download/v1.6.0/HavoraSetup-1.6.0.exe" class="btn-primary" onclick="trackDownload()">
-      ⬇ Descargar Havora — empieza hoy
+    <a href="https://apps.microsoft.com/detail/9NND2741FJHK" class="btn-primary" target="_blank" rel="noopener" onclick="trackDownload()">
+      🪟 Obtener en Microsoft Store
     </a>
     <div class="cta-footnote">Windows 10 / 11 · Sin cuenta · Sin tarjeta de crédito</div>
     <p class="cta-discount-note" id="ctaDiscountNote"></p>
@@ -2275,7 +2195,8 @@ function trackDownload() {
       body: JSON.stringify({ type: 'download', page: location.pathname }),
     });
   } catch (e) {}
-  // No se bloquea la navegación: el enlace sigue a GitHub Releases normalmente.
+  // No se bloquea la navegación: el enlace sigue normalmente (hoy, siempre a la Microsoft Store —
+  // se sacó la descarga directa del .exe, pedido real: "elimina el boton de descarga directa").
 }
 
 // Lightbox para ampliar capturas: clic en cualquier imagen .zoomable la muestra a tamaño completo.
