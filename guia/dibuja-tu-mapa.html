@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dibuja el mapa de tu mundo — Guía de Havora</title>
+<meta name="description" content="Locaciones, personajes y rutas sobre un lienzo que pintas vos mismo, sin depender de ninguna imagen externa.">
+<link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f5f4f1;--bg2:#ffffff;--bg3:#f0eff9;--accent:#5c6bc0;--accent-h:#7e57c2;--text:#1a1832;--text2:#4a4866;--muted:#7a788f;--border:#e2e0ef;--sidebar:#1a1832;--r:12px;--serif:'Playfair Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0f0e1a;--bg2:#1a1832;--bg3:#221f38;--accent:#7c88d4;--accent-h:#9b83da;--text:#eceaf8;--text2:#b0adc8;--muted:#8c89a8;--border:#2d2a4a}}
+:root[data-theme=dark]{--bg:#0f0e1a;--bg2:#1a1832;--bg3:#221f38;--accent:#7c88d4;--accent-h:#9b83da;--text:#eceaf8;--text2:#b0adc8;--muted:#8c89a8;--border:#2d2a4a}
+:root[data-theme=light]{--bg:#f5f4f1;--bg2:#ffffff;--bg3:#f0eff9;--accent:#5c6bc0;--text:#1a1832;--text2:#4a4866;--muted:#7a788f;--border:#e2e0ef}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.7;font-size:1rem}
+img{max-width:100%;display:block}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:var(--accent-h)}
+
+nav{background:var(--sidebar);border-bottom:1px solid rgba(255,255,255,.06);padding:14px 0;position:sticky;top:0;z-index:100}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1080px;margin:0 auto;padding:0 24px;gap:16px}
+.nav-logo{display:flex;align-items:center;gap:10px;color:#fff;font-family:var(--sans);font-size:1.05rem;font-weight:700;letter-spacing:.03em;text-decoration:none}
+.wf-icon{width:32px;height:32px;flex-shrink:0;display:block}
+.btn-nav-back{color:rgba(255,255,255,.55);font-size:.84rem;font-weight:500;padding:6px 14px;border-radius:7px;border:1px solid rgba(255,255,255,.1);transition:all .15s;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.btn-nav-back:hover{color:#fff;border-color:rgba(255,255,255,.25)}
+
+.doc{max-width:760px;margin:0 auto;padding:60px 24px 40px}
+.doc-eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.doc-title{font-family:var(--serif);font-size:clamp(2rem,4.5vw,3rem);font-weight:900;letter-spacing:-.03em;line-height:1.08;margin-bottom:14px;color:var(--text);text-wrap:balance}
+.doc-sub{font-size:1rem;color:var(--text2);margin-bottom:8px;line-height:1.7;max-width:620px}
+.doc-meta{display:flex;gap:14px;flex-wrap:wrap;font-size:.82rem;color:var(--muted);margin:20px 0 44px;padding-bottom:28px;border-bottom:1px solid var(--border)}
+.doc-meta span{display:inline-flex;align-items:center;gap:6px}
+
+.g-step{display:flex;flex-direction:column;gap:18px;margin-bottom:56px}
+.g-step-num{font-family:var(--serif);font-size:.85rem;font-weight:700;color:var(--accent);letter-spacing:.06em}
+.g-step h2{font-family:var(--serif);font-size:1.5rem;font-weight:700;letter-spacing:-.01em;color:var(--text);margin:2px 0 4px;line-height:1.25}
+.g-step p{font-size:.97rem;color:var(--text2);line-height:1.75;max-width:640px}
+.g-step p+p{margin-top:10px}
+.g-shot{margin:6px auto 0;max-width:680px;width:100%}
+.g-chrome{background:var(--sidebar);border-radius:10px 10px 0 0;padding:9px 13px;display:flex;align-items:center;gap:7px;border:1px solid rgba(255,255,255,.08);border-bottom:none}
+.g-dot{width:9px;height:9px;border-radius:50%}
+.g-imgwrap{border:1px solid rgba(255,255,255,.08);border-top:none;border-radius:0 0 10px 10px;overflow:hidden;background:var(--bg3);box-shadow:0 16px 40px -20px rgba(0,0,0,.35)}
+.g-imgwrap img{width:100%;height:auto;display:block}
+.g-shots-pair{display:flex;gap:16px;flex-wrap:wrap;max-width:680px;margin:6px auto 0}
+.g-shots-pair .g-shot{flex:1 1 300px;max-width:none;margin:0}
+
+.g-tip{background:color-mix(in srgb,var(--accent) 9%,transparent);border-left:3px solid var(--accent);padding:14px 18px;border-radius:0 var(--r) var(--r) 0;margin:0 0 44px;font-size:.9rem;color:var(--text2);line-height:1.65;max-width:640px}
+.g-tip b{color:var(--text)}
+
+.g-cta{max-width:680px;margin:8px auto 0;padding:36px 32px;border-radius:16px;background:var(--bg3);text-align:center}
+.g-cta h3{font-family:var(--serif);font-size:1.4rem;font-weight:700;color:var(--text);margin-bottom:8px}
+.g-cta p{font-size:.92rem;color:var(--text2);margin-bottom:20px}
+.btn-primary{background:var(--accent);color:#fff!important;font-weight:600;font-size:.9rem;padding:12px 24px;border-radius:7px;border:none;cursor:pointer;transition:background .15s,transform .15s;display:inline-block}
+.btn-primary:hover{background:var(--accent-h);transform:translateY(-1px)}
+
+.g-more{max-width:680px;margin:56px auto 0;padding-top:28px;border-top:1px solid var(--border);display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-size:.88rem}
+.g-more a{color:var(--text2);font-weight:600}
+.g-more a:hover{color:var(--accent)}
+
+@media(max-width:640px){.doc{padding:40px 18px 30px}.g-cta{padding:28px 20px}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">
+      <svg class="wf-icon logo-svg" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+        <rect width="36" height="36" rx="7" fill="#5c6bc0"/>
+        <path d="M5,18 Q5,5 18,5 Q31,5 31,18 Z" fill="white"/>
+        <ellipse cx="12.5" cy="11.5" rx="4" ry="5.5" fill="#5c6bc0" opacity="0.65"/>
+        <ellipse cx="23" cy="12.5" rx="3.5" ry="4.5" fill="#5c6bc0" opacity="0.65"/>
+        <line x1="5" y1="18" x2="31" y2="18" stroke="rgba(255,255,255,.35)" stroke-width="0.8"/>
+        <path d="M3.5,20.5 L32.5,20.5 L29,26.5 L7,26.5 Z" fill="white"/>
+        <path d="M3.5,20.5 Q0.5,21.5 2,25 L7,26.5 Z" fill="white"/>
+        <rect x="13.5" y="26.5" width="9" height="5.5" rx="1" fill="white"/>
+        <rect x="9.5" y="32" width="17" height="3.5" rx="1.5" fill="white"/>
+      </svg>
+      <img class="wf-icon logo-png" src="../assets/logo.png" alt="" style="display:none;border-radius:7px">
+      Havora
+    </a>
+    <a href="index.html" class="btn-nav-back">← Toda la guía</a>
+  </div>
+</nav>
+<div class="doc">
+  <div class="doc-eyebrow">GUÍA · MAPA DEL MUNDO</div>
+  <h1 class="doc-title">Dibuja el mapa de tu mundo</h1>
+  <p class="doc-sub">Locaciones, personajes y rutas sobre un lienzo que pintas vos mismo, sin depender de ninguna imagen externa.</p>
+  <div class="doc-meta"><span>📖 2 min de lectura</span><span>🖥️ Capturas reales de la app</span></div>
+  <div class="g-step"><div class="g-step-num">PASO 1</div><h2>Elige qué colocar</h2><p>La paleta de la izquierda reúne todo: Ciudad, Templo y Casa (vinculadas a una Locación), Personaje, Objeto, Entorno, Texto libre y marcadores de Escena. Cada elemento vinculado abre su ficha con un clic.</p><p>El botón Elementos agrupa todo lo que hay en el mapa por capa, para ocultar o bloquear cualquiera de ellas sin perder de vista el resto.</p><div class="g-shot"><div class="g-chrome"><div class="g-dot" style="background:#ff5f57"></div><div class="g-dot" style="background:#febc2e"></div><div class="g-dot" style="background:#28c840"></div></div><div class="g-imgwrap"><img src="../assets/guia/map-edit-empty.png" alt="Editor del Mapa del mundo de Havora con la paleta de herramientas abierta" loading="lazy"></div></div></div>
+<div class="g-step"><div class="g-step-num">PASO 2</div><h2>Pinta el terreno directo sobre el mapa</h2><p>Tierra, arena, nieve, bosque, roca y mar — pinceles reales que se usan como un lienzo, sin subir ninguna imagen de fondo. El tamaño del pincel, la textura y qué tan irregular sale el borde se ajustan a tu gusto.</p><p>"Geografía" dispersa montañas y bosques arrastrando el mouse, en vez de colocarlos uno por uno.</p></div>
+<div class="g-step"><div class="g-step-num">PASO 3</div><h2>Distancias y viajes, calculadas solas</h2><p>Conecta dos locaciones con una ruta y, si el mapa tiene una escala configurada, Havora calcula la distancia real en kilómetros y el tiempo de viaje con cada medio que definas (a pie, a caballo, en barco).</p></div>
+<div class="g-step"><div class="g-step-num">PASO 4</div><h2>Una vista de mapa de fantasía</h2><p>Con un interruptor, el mismo terreno que ya pintaste se redibuja como una costa dibujada a mano — tinta, borde irregular, olas del lado del mar — sin tocar ni un dato de tu obra.</p></div>
+  <div class="g-tip">Plan gratis: 1 mapa por obra. Premium permite más de uno — por ejemplo, uno del continente entero y otro solo de una ciudad importante.</div>
+  <div class="g-cta"><h3>Escribe la novela que llevas años imaginando</h3><p>Havora es gratis para empezar, 100% offline — tus historias, siempre tuyas.</p><a href="https://apps.microsoft.com/detail/9NND2741FJHK" class="btn-primary" target="_blank" rel="noopener">Consíguelo en Microsoft Store</a></div>
+  <div class="g-more">
+    <a href="index.html">← Toda la guía</a>
+    <a href="promociona-tu-obra.html">Siguiente: Promociona tu obra en redes →</a>
+  </div>
+</div>
+</body>
+</html>
