@@ -164,6 +164,10 @@
     // con un botón para verlos igual, en español.
     var esOnly = document.querySelectorAll('[data-i18n-es-only]');
     for (var e = 0; e < esOnly.length; e++) { esOnly[e].setAttribute('lang', 'es'); esOnly[e].hidden = true; }
+    // Imágenes con texto que tienen su versión en inglés (p. ej. la insignia oficial de Microsoft
+    // Store): <img src="…es.svg" data-src-en="…en.svg">. El alt se traduce con el diccionario.
+    var imgs = document.querySelectorAll('img[data-src-en]');
+    for (var g = 0; g < imgs.length; g++) imgs[g].setAttribute('src', imgs[g].getAttribute('data-src-en'));
     // Avisos que solo tienen sentido en inglés (p. ej. «esta traducción es de referencia»).
     var enOnly = document.querySelectorAll('[data-i18n-en-only]');
     for (var q = 0; q < enOnly.length; q++) enOnly[q].hidden = false;
