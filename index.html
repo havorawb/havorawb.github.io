@@ -5,8 +5,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Havora — El hogar de tu imaginación</title>
-<meta name="description" content="Havora, el hogar de tu imaginación: la aplicación de escritorio para planificar, escribir y desarrollar tu novela. Personajes, mapa, manuscrito, IA integrada. Tu contenido siempre en tu equipo.">
+<meta name="description" content="Havora, el hogar de tu imaginación: la aplicación para Windows y Android para planificar, escribir y desarrollar tu novela. Personajes, mapa, manuscrito, IA integrada. Tu contenido siempre en tu equipo.">
 <link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="stylesheet" href="css/stores.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -46,8 +47,10 @@ nav{background:var(--sidebar);border-bottom:1px solid rgba(255,255,255,.06);padd
 .nav-logo-text{display:flex;flex-direction:column;justify-content:center;line-height:1.3}
 .nav-logo-title{font-size:1.05rem;font-weight:700;letter-spacing:.03em}
 .nav-logo-tagline{font-size:.64rem;font-weight:400;opacity:.55;letter-spacing:.02em;white-space:nowrap}
-.nav-links{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.btn-nav{color:rgba(255,255,255,.6);font-size:.85rem;font-weight:500;padding:7px 14px;border-radius:7px;border:1px solid rgba(255,255,255,.1);transition:all .15s;text-decoration:none}
+.nav-links{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.nav-links .btn-primary{padding:9px 14px}
+@media(max-width:640px){.nav-links{flex-wrap:nowrap}.nav-links .btn-primary{padding:8px 10px;font-size:.8rem;white-space:nowrap}.nav-inner{padding:0 16px;gap:10px}}
+.btn-nav{color:rgba(255,255,255,.6);font-size:.82rem;font-weight:500;padding:7px 9px;border-radius:7px;border:1px solid rgba(255,255,255,.1);transition:all .15s;text-decoration:none}
 .btn-nav:hover{color:#fff;border-color:rgba(255,255,255,.25)}
 .btn-primary{background:var(--accent);color:#fff!important;font-weight:600;font-size:.875rem;padding:9px 20px;border-radius:7px;border:none;cursor:pointer;transition:background .15s,transform .15s,box-shadow .15s;text-decoration:none;display:inline-flex;align-items:center;gap:6px;line-height:1}
 .btn-primary:hover{background:var(--accent-h);transform:translateY(-1px);box-shadow:0 6px 16px color-mix(in srgb,var(--accent) 35%,transparent)}
@@ -392,6 +395,7 @@ footer{background:var(--sidebar);padding:32px 0}
       <a href="#comparativa" class="btn-nav hide-mobile">Comparativa</a>
       <a href="#planes" class="btn-nav hide-mobile">Planes</a>
       <a href="#faq" class="btn-nav hide-mobile">FAQ</a>
+      <span data-lang-switch></span>
       <a href="https://apps.microsoft.com/detail/9NND2741FJHK" class="btn-primary" target="_blank" rel="noopener" onclick="trackDownload()">
         🪟 Microsoft Store
       </a>
@@ -405,7 +409,7 @@ footer{background:var(--sidebar);padding:32px 0}
     <div class="hero-center">
       <div class="hero-eyebrow">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        Aplicación de escritorio · Windows
+        Para Windows y Android
       </div>
       <h1>Escribe la novela<br>que llevas <em>años imaginando</em>.</h1>
       <p class="hero-claim">Todo tu mundo, tus personajes y tu manuscrito en un solo lugar.</p>
@@ -415,11 +419,16 @@ footer{background:var(--sidebar);padding:32px 0}
           <img src="assets/ms-badge-dark.svg" class="ms-badge-dark" alt="Consíguelo en Microsoft Store" width="216" height="59">
           <img src="assets/ms-badge-light.svg" class="ms-badge-light" alt="Consíguelo en Microsoft Store" width="216" height="59">
         </a>
+        <a href="https://play.google.com/store/apps/details?id=com.havora.wb" class="play-badge" target="_blank" rel="noopener" onclick="trackDownload('Google Play')" aria-label="Disponible en Google Play">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10.5 9.2v5.6l4.4-2.8z" fill="currentColor"/><line x1="11" y1="18.5" x2="13" y2="18.5"/></svg>
+          <span class="play-badge-text"><small>Disponible en</small><b>Google Play</b></span>
+        </a>
         <a href="#como-funciona" class="btn-outline">Ver cómo funciona →</a>
       </div>
       <div class="hero-footnote">
         <span>Gratis para siempre</span>
         <span>Windows 10 / 11</span>
+        <span>Android</span>
         <span>100% offline</span>
         <span>v4.6.0</span>
       </div>
@@ -1112,6 +1121,8 @@ footer{background:var(--sidebar);padding:32px 0}
         </ul>
         <a href="https://apps.microsoft.com/detail/9NND2741FJHK"
            class="btn-outline" style="width:100%;justify-content:center" target="_blank" rel="noopener" onclick="trackDownload()">🪟 Obtener en Microsoft Store</a>
+        <a href="https://play.google.com/store/apps/details?id=com.havora.wb"
+           class="btn-outline" style="width:100%;justify-content:center;gap:8px;margin-top:10px" target="_blank" rel="noopener" onclick="trackDownload('Google Play')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10.5 9.2v5.6l4.4-2.8z" fill="currentColor"/><line x1="11" y1="18.5" x2="13" y2="18.5"/></svg> Obtener en Google Play</a>
       </div>
 
       <div class="plan-card featured">
@@ -1214,10 +1225,18 @@ footer{background:var(--sidebar);padding:32px 0}
 
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
+          ¿Hay app para el celular?
+          <svg class="faq-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="faq-a"><p>Sí. Havora tiene app para <strong>Android</strong>: descárgala en <a href="https://play.google.com/store/apps/details?id=com.havora.wb" target="_blank" rel="noopener" onclick="trackDownload('Google Play')">Google Play</a>. Con la sincronización opcional por tu propio Google Drive, sigues la misma obra en tu PC y en tu celular.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
           ¿Hay versión para Mac o Linux?
           <svg class="faq-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
-        <div class="faq-a"><p>Havora está disponible para <strong>Windows 10 y 11</strong>.</p></div>
+        <div class="faq-a"><p>Por ahora, Havora está disponible para <strong>Windows 10 y 11</strong> y para <strong>Android</strong>. No hay versión para Mac ni Linux.</p></div>
       </div>
 
       <div class="faq-item">
@@ -1267,7 +1286,11 @@ footer{background:var(--sidebar);padding:32px 0}
     <a href="https://apps.microsoft.com/detail/9NND2741FJHK" class="btn-primary" target="_blank" rel="noopener" onclick="trackDownload()">
       🪟 Obtener en Microsoft Store
     </a>
-    <div class="cta-footnote">Windows 10 / 11 · Sin cuenta · Sin tarjeta de crédito</div>
+    <a href="https://play.google.com/store/apps/details?id=com.havora.wb" class="play-btn" target="_blank" rel="noopener" onclick="trackDownload('Google Play')" style="margin:10px 0 0 6px">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10.5 9.2v5.6l4.4-2.8z" fill="currentColor"/><line x1="11" y1="18.5" x2="13" y2="18.5"/></svg>
+      Obtener en Google Play
+    </a>
+    <div class="cta-footnote">Windows 10 / 11 · Android · Sin cuenta · Sin tarjeta de crédito</div>
     <p class="cta-discount-note" id="ctaDiscountNote"></p>
   </div>
 </section>
@@ -1533,6 +1556,10 @@ footer{background:var(--sidebar);padding:32px 0}
     </div>
   </div>
 
+    <!-- Las versiones anteriores a la 4.0 no tienen traducción (la app tampoco la tiene): en inglés se
+         ocultan detrás de este aviso (ver js/i18n.js, data-i18n-es-only). -->
+    <p class="chg-es-only-note" data-i18n-es-only-note hidden>Las notas de las versiones anteriores a la 4.0 están solo en español. <button type="button">Mostrarlas en español</button></p>
+    <div data-i18n-es-only>
         <div class="changelog-entry">
     <div class="changelog-header">
       <span class="changelog-v">v3.6.1</span>
@@ -2747,6 +2774,7 @@ footer{background:var(--sidebar);padding:32px 0}
       </div>
     </div>
     </div>
+    </div><!-- /versiones anteriores a la 4.0 -->
   </div>
 </section>
 
@@ -2776,6 +2804,11 @@ footer{background:var(--sidebar);padding:32px 0}
   </div>
 </footer>
 
+<!-- Idioma (español / inglés): ver js/i18n.js. Va antes que el resto para que hvT() exista. -->
+<script src="js/i18n-en.js"></script>
+<script src="js/i18n-en-changelog.js"></script>
+<script src="js/i18n.js"></script>
+
 <!-- Paddle checkout (se activa solo cuando la URL incluye ?_ptxn=...) -->
 <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
 <script>
@@ -2794,19 +2827,19 @@ footer{background:var(--sidebar);padding:32px 0}
     'padding:15px 20px;font-size:.9rem;font-weight:600',
     'box-shadow:0 2px 12px rgba(0,0,0,.25)'
   ].join(';');
-  banner.textContent = 'Cargando pantalla de pago…';
+  banner.textContent = hvT('Cargando pantalla de pago…');
   document.body.prepend(banner);
 
   function showError(msg) {
     banner.style.background = '#c62828';
-    banner.textContent = 'Error al abrir el checkout: ' + msg;
+    banner.textContent = hvT('Error al abrir el checkout: {msg}', { msg: msg });
   }
 
   /* Paddle.js define su global de forma asíncrona — esperamos hasta 5s */
   var attempts = 0;
   function init() {
     if (typeof Paddle === 'undefined') {
-      if (++attempts > 50) { showError('Paddle.js no cargó (sin conexión?)'); return; }
+      if (++attempts > 50) { showError(hvT('Paddle.js no cargó (¿sin conexión?)')); return; }
       setTimeout(init, 100);
       return;
     }
@@ -2816,14 +2849,14 @@ footer{background:var(--sidebar);padding:32px 0}
       eventCallback: function(event) {
         if (event.name === 'checkout.completed') {
           banner.style.background = '#2e7d32';
-          banner.innerHTML = '¡Pago completado! &nbsp;·&nbsp; Abre Havora &rarr; Configuración &rarr; Licencia &rarr; ingresa tu email y presiona <strong>Verificar</strong>.';
+          banner.innerHTML = hvT('¡Pago completado! &nbsp;·&nbsp; Abre Havora &rarr; Configuración &rarr; Licencia &rarr; ingresa tu email y presiona <strong>Verificar</strong>.');
         }
         if (event.name === 'checkout.error') {
           showError(event.data?.code || JSON.stringify(event.data));
         }
         if (event.name === 'checkout.closed' && banner.style.background !== 'rgb(46, 125, 50)') {
           banner.style.background = '#555';
-          banner.textContent = 'Pago cancelado. Puedes cerrar esta pestaña.';
+          banner.textContent = hvT('Pago cancelado. Puedes cerrar esta pestaña.');
         }
       }
     });
@@ -2868,15 +2901,15 @@ function launchDiscountActive() {
   var el = document.getElementById('launchCountdown');
   if (!el) return;
   if (!launchDiscountActive()) {
-    document.getElementById('premiumPlanBadge').textContent = 'Recomendado';
+    document.getElementById('premiumPlanBadge').textContent = hvT('Recomendado');
     document.getElementById('premiumPrice').innerHTML = '$49';
-    document.getElementById('premiumNote').textContent = 'Pago único · de por vida';
+    document.getElementById('premiumNote').textContent = hvT('Pago único · de por vida');
     el.remove();
     return;
   }
   var end = new Date(PADDLE_LAUNCH_DISCOUNT_END);
   var days = Math.max(0, Math.ceil((end - new Date()) / 86400000));
-  el.textContent = days <= 1 ? 'Último día de oferta de lanzamiento' : 'Oferta de lanzamiento — quedan ' + days + ' días';
+  el.textContent = days <= 1 ? hvT('Último día de oferta de lanzamiento') : hvT('Oferta de lanzamiento — quedan {n} días', { n: days });
 })();
 
 (function renderCtaDiscountNote() {
@@ -2885,7 +2918,7 @@ function launchDiscountActive() {
   if (!launchDiscountActive()) { el.remove(); return; }
   var end = new Date(PADDLE_LAUNCH_DISCOUNT_END);
   var days = Math.max(0, Math.ceil((end - new Date()) / 86400000));
-  el.innerHTML = '¿Ya la probaste? Llévate Premium a <strong>$39 de por vida</strong> — quedan ' + days + ' días de la oferta de lanzamiento. <a href="#planes">Ver planes →</a>';
+  el.innerHTML = hvT('¿Ya la probaste? Llévate Premium a <strong>$39 de por vida</strong> — quedan {n} días de la oferta de lanzamiento. <a href="#planes">Ver planes →</a>', { n: days });
 })();
 
 async function buyPremium() {
@@ -2893,17 +2926,17 @@ async function buyPremium() {
   var label = document.getElementById('premiumBuyBtnLabel');
   var originalLabel = label.textContent;
   btn.disabled = true;
-  label.textContent = 'Abriendo pago…';
+  label.textContent = hvT('Abriendo pago…');
   try {
     var qs = 'priceId=' + encodeURIComponent(PADDLE_PRICE_LIFETIME);
     if (launchDiscountActive()) qs += '&discountId=' + encodeURIComponent(PADDLE_DISCOUNT_LAUNCH);
     var res = await fetch(PADDLE_WORKER_URL + '/create-checkout?' + qs);
     var data = await res.json().catch(function(){ return {}; });
     if (data.error) throw new Error(data.error);
-    if (!data.transactionId) throw new Error('No se recibió ID de transacción');
+    if (!data.transactionId) throw new Error(hvT('No se recibió ID de transacción'));
     location.href = 'checkout.html?_ptxn=' + encodeURIComponent(data.transactionId);
   } catch (err) {
-    alert('No se pudo abrir el pago: ' + (err && err.message ? err.message : err) + '\n\nTambién puedes comprarlo desde la app: Configuración → Licencia → Obtener Premium.');
+    alert(hvT('No se pudo abrir el pago: {msg}', { msg: (err && err.message ? err.message : err) }) + '\n\n' + hvT('También puedes comprarlo desde la app: Configuración → Licencia → Obtener Premium.'));
     btn.disabled = false;
     label.textContent = originalLabel;
   }
@@ -2911,13 +2944,14 @@ async function buyPremium() {
 
 // URL del Cloudflare Worker que avisa por correo cada descarga (ver worker.js).
 var DOWNLOAD_NOTIFY_URL = 'https://havora-notify.worldforge-support.workers.dev';
-function trackDownload() {
+// store: qué tienda (sin nada = Microsoft Store; 'Google Play' para la app de Android).
+function trackDownload(store) {
   try {
     fetch(DOWNLOAD_NOTIFY_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       keepalive: true,
-      body: JSON.stringify({ type: 'download', page: location.pathname }),
+      body: JSON.stringify({ type: 'download', page: location.pathname + (store ? ' · ' + store : '') }),
     });
   } catch (e) {}
   // No se bloquea la navegación: el enlace sigue normalmente (hoy, siempre a la Microsoft Store —
@@ -2932,7 +2966,7 @@ document.addEventListener('click', function(e) {
     if (!lb) {
       lb = document.createElement('div');
       lb.id = 'lightbox';
-      lb.innerHTML = '<button type="button" class="lb-close" aria-label="Cerrar">&times;</button><img><span class="lb-hint">Clic para cerrar</span>';
+      lb.innerHTML = '<button type="button" class="lb-close" aria-label="' + hvT('Cerrar') + '">&times;</button><img><span class="lb-hint">' + hvT('Clic para cerrar') + '</span>';
       lb.addEventListener('click', () => lb.classList.remove('show'));
       document.body.appendChild(lb);
     }
@@ -2974,7 +3008,7 @@ fetch(REVIEWS_WORKER_URL + '/reviews')
       return '<div class="testimonio-card">' +
         '<div class="testimonio-stars">' + starsHtml(r.rating) + '</div>' +
         '<div class="testimonio-quote">“' + r.comment + '”</div>' +
-        '<div class="testimonio-name">' + escHtml(r.displayName || 'Escritor/a de Havora') + '</div>' +
+        '<div class="testimonio-name">' + escHtml(r.displayName || hvT('Escritor/a de Havora')) + '</div>' +
         '</div>';
     }).join('');
     section.style.display = '';

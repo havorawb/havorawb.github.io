@@ -75,6 +75,7 @@ nav{background:var(--sidebar);border-bottom:1px solid rgba(255,255,255,.06);padd
 .g-card-body p{font-size:.85rem;color:var(--text2);line-height:1.6}
 @media(max-width:640px){.g-grid{grid-template-columns:1fr}}
 </style>
+<link rel="stylesheet" href="../css/stores.css">
 </head>
 <body>
 <nav>
@@ -94,7 +95,7 @@ nav{background:var(--sidebar);border-bottom:1px solid rgba(255,255,255,.06);padd
       <img class="wf-icon logo-png" src="../assets/logo.png" alt="" style="display:none;border-radius:7px">
       Havora
     </a>
-    <a href="../index.html" class="btn-nav-back">← Volver al inicio</a>
+    <div style="display:flex;align-items:center;gap:10px"><span data-lang-switch></span><a href="../index.html" class="btn-nav-back">← Volver al inicio</a></div>
   </div>
 </nav>
 <div class="doc" style="max-width:900px">
@@ -113,7 +114,7 @@ nav{background:var(--sidebar);border-bottom:1px solid rgba(255,255,255,.06);padd
   </a>
 <a href="dibuja-tu-mapa.html" class="g-card">
     <div class="g-card-img"><img src="../assets/guia/map-edit-empty.webp" alt="Dibuja el mapa de tu mundo" loading="lazy"></div>
-    <div class="g-card-body"><div class="g-card-eyebrow">GUÍA · MAPA DEL MUNDO</div><h3>Dibuja el mapa de tu mundo</h3><p>Locaciones, personajes y rutas sobre un lienzo que pintas vos mismo, sin depender de ninguna imagen externa.</p></div>
+    <div class="g-card-body"><div class="g-card-eyebrow">GUÍA · MAPA DEL MUNDO</div><h3>Dibuja el mapa de tu mundo</h3><p>Locaciones, personajes y rutas sobre un lienzo que pintas tú mismo, sin depender de ninguna imagen externa.</p></div>
   </a>
 <a href="promociona-tu-obra.html" class="g-card">
     <div class="g-card-img"><img src="../assets/guia/promo-templates.webp" alt="Promociona tu obra en redes" loading="lazy"></div>
@@ -125,5 +126,8 @@ nav{background:var(--sidebar);border-bottom:1px solid rgba(255,255,255,.06);padd
   </a>
   </div>
 </div>
+<!-- Idioma (español / inglés): ver js/i18n.js -->
+<script src="../js/i18n-en.js"></script>
+<script src="../js/i18n.js"></script>
 </body>
 </html>

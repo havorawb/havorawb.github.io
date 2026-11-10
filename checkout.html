@@ -443,6 +443,7 @@ body {
     <div class="brand">
       <img src="assets/logo.png" alt="Havora">
       <span class="brand-name">Havora</span>
+      <span data-lang-switch="dark" style="margin-left:auto"></span>
     </div>
 
     <div class="eyebrow">Plan Premium</div>
@@ -583,6 +584,9 @@ body {
 
 </div>
 
+<!-- Idioma (español / inglés): ver js/i18n.js -->
+<script src="js/i18n-en.js"></script>
+<script src="js/i18n.js"></script>
 <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
 <script>
 (function () {
@@ -602,7 +606,7 @@ body {
   }
 
   if (!txnId) {
-    showError('Enlace de pago inválido o expirado. Vuelve a Havora e intenta de nuevo.');
+    showError(hvT('Enlace de pago inválido o expirado. Vuelve a Havora e intenta de nuevo.'));
     return;
   }
 
@@ -610,7 +614,7 @@ body {
   function init() {
     if (typeof Paddle === 'undefined') {
       if (++attempts > 60) {
-        showError('Paddle.js no cargó. Verifica tu conexión a internet e intenta de nuevo.');
+        showError(hvT('Paddle.js no cargó. Verifica tu conexión a internet e intenta de nuevo.'));
         return;
       }
       setTimeout(init, 100);
@@ -627,7 +631,7 @@ body {
           success.style.display   = 'block';
         }
         if (event.name === 'checkout.error') {
-          showError('Error al procesar el pago: ' + ((event.data && event.data.code) || 'desconocido'));
+          showError(hvT('Error al procesar el pago: {msg}', { msg: (event.data && event.data.code) || hvT('desconocido') }));
         }
         if (event.name === 'checkout.loaded') {
           loading.style.display = 'none';
@@ -639,6 +643,7 @@ body {
       Paddle.Checkout.open({
         transactionId: txnId,
         settings: {
+          locale:             window.HV_LANG === 'en' ? 'en' : 'es',
           displayMode:        'inline',
           frameTarget:        'paddle-checkout-container',
           frameInitialHeight: 450,
@@ -646,7 +651,7 @@ body {
         }
       });
     } catch (e) {
-      showError('Error al abrir el checkout: ' + e.message);
+      showError(hvT('Error al abrir el checkout: {msg}', { msg: e.message }));
     }
   }
 

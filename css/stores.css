@@ -1,0 +1,21 @@
+/* Botones de las tiendas (Google Play) — compartido por el inicio y la guía.
+   No usa el logo oficial de Google Play: ícono propio de celular + el nombre de la tienda en texto.
+   .play-badge: mismo tamaño y colores que la insignia de Microsoft Store (216 × 59, fondo #202020 en
+   tema claro y #FDFDFD en tema oscuro), para que las dos se lean como un par.
+   .play-btn: botón de contorno, para donde el botón de Microsoft Store es un .btn-primary. */
+.play-badge{display:inline-flex;align-items:center;gap:12px;width:216px;height:59px;padding:0 18px;border-radius:7px;background:#202020;color:#fff!important;text-decoration:none;font-family:var(--sans,system-ui,sans-serif);border:1px solid rgba(0,0,0,.1);transition:transform .15s,box-shadow .15s;box-sizing:border-box}
+.play-badge:hover{transform:translateY(-1px);box-shadow:0 6px 16px color-mix(in srgb,var(--accent,#5c6bc0) 35%,transparent)}
+.play-badge svg{width:26px;height:26px;flex-shrink:0}
+.play-badge-text{display:flex;flex-direction:column;line-height:1.1;text-align:left}
+.play-badge-text small{font-size:.66rem;font-weight:500;letter-spacing:.02em;opacity:.85}
+.play-badge-text b{font-size:1.18rem;font-weight:600;letter-spacing:-.01em}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]) .play-badge{background:#fdfdfd;color:#000!important;border-color:rgba(0,0,0,.06)}}
+:root[data-theme=dark] .play-badge{background:#fdfdfd;color:#000!important;border-color:rgba(0,0,0,.06)}
+@media(prefers-reduced-motion:reduce){.play-badge{transition:none}.play-badge:hover{transform:none}}
+
+.play-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--sans,system-ui,sans-serif);font-weight:600;font-size:.9rem;line-height:1;padding:12px 22px;border-radius:7px;border:1px solid var(--border,#e2e0ef);color:var(--text,#1a1832)!important;text-decoration:none;transition:border-color .15s,color .15s}
+.play-btn:hover{border-color:var(--muted,#7a788f)}
+.play-btn svg{width:18px;height:18px;flex-shrink:0}
+.cta-final .play-btn{color:#fff!important;border-color:rgba(255,255,255,.25);font-size:1rem;padding:13px 28px}
+.cta-final .play-btn:hover{border-color:rgba(255,255,255,.55)}
+.g-cta .play-btn{margin:8px 0 0 4px;padding:11px 20px}

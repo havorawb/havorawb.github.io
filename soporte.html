@@ -77,7 +77,7 @@ footer{background:var(--sidebar);padding:32px 0}
       <img class="wf-icon logo-png" src="assets/logo.png" alt="" style="display:none;border-radius:7px">
       Havora
     </a>
-    <a href="index.html" class="btn-nav-back">← Volver al inicio</a>
+    <div style="display:flex;align-items:center;gap:10px"><span data-lang-switch></span><a href="index.html" class="btn-nav-back">← Volver al inicio</a></div>
   </div>
 </nav>
 
@@ -130,6 +130,9 @@ footer{background:var(--sidebar);padding:32px 0}
   </div>
 </footer>
 
+<!-- Idioma (español / inglés): ver js/i18n.js -->
+<script src="js/i18n-en.js"></script>
+<script src="js/i18n.js"></script>
 <script>
 (function(){var t=new Image();t.onload=function(){document.querySelectorAll('.logo-svg').forEach(function(e){e.style.display='none'});document.querySelectorAll('.logo-png').forEach(function(e){e.style.display='block'})};t.src='assets/logo.png'})();
 
@@ -143,7 +146,7 @@ const btn = document.getElementById('sfSubmit');
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
   btn.disabled = true;
-  btn.textContent = 'Enviando...';
+  btn.textContent = hvT('Enviando...');
   msgEl.className = 'form-msg';
   try {
     const res = await fetch(WORKER_URL, {
@@ -157,15 +160,15 @@ form.addEventListener('submit', async (e) => {
       }),
     });
     if (!res.ok) throw new Error();
-    msgEl.textContent = '¡Gracias! Tu mensaje fue enviado — te responderemos pronto.';
+    msgEl.textContent = hvT('¡Gracias! Tu mensaje fue enviado — te responderemos pronto.');
     msgEl.className = 'form-msg ok';
     form.reset();
   } catch {
-    msgEl.textContent = 'No se pudo enviar el mensaje. Escríbenos directo a havora.wb@gmail.com.';
+    msgEl.textContent = hvT('No se pudo enviar el mensaje. Escríbenos directo a havora.wb@gmail.com.');
     msgEl.className = 'form-msg err';
   } finally {
     btn.disabled = false;
-    btn.textContent = 'Enviar mensaje';
+    btn.textContent = hvT('Enviar mensaje');
   }
 });
 </script>

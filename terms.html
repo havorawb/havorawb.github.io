@@ -68,7 +68,7 @@ footer{background:var(--sidebar);padding:32px 0}
       <img class="wf-icon logo-png" src="assets/logo.png" alt="" style="display:none;border-radius:7px">
       Havora
     </a>
-    <a href="index.html" class="btn-nav-back">← Volver al inicio</a>
+    <div style="display:flex;align-items:center;gap:10px"><span data-lang-switch></span><a href="index.html" class="btn-nav-back">← Volver al inicio</a></div>
   </div>
 </nav>
 
@@ -76,6 +76,7 @@ footer{background:var(--sidebar);padding:32px 0}
   <div class="doc-eyebrow">Legal</div>
   <h1 class="doc-title">Términos de servicio</h1>
   <p class="doc-updated">Última actualización: 17 de julio de 2026</p>
+  <p class="doc-updated" data-i18n-en-only hidden style="margin-top:-40px">Esta traducción es solo de referencia. Si hay diferencias, vale la versión en español.</p>
 
   <div class="doc-note">
     Al descargar, instalar o usar Havora, aceptas estos términos. Si no estás de acuerdo, no uses la aplicación.
@@ -161,6 +162,9 @@ footer{background:var(--sidebar);padding:32px 0}
   </div>
 </footer>
 
+<!-- Idioma (español / inglés): ver js/i18n.js -->
+<script src="js/i18n-en.js"></script>
+<script src="js/i18n.js"></script>
 <script>
 (function(){var t=new Image();t.onload=function(){document.querySelectorAll('.logo-svg').forEach(function(e){e.style.display='none'});document.querySelectorAll('.logo-png').forEach(function(e){e.style.display='block'})};t.src='assets/logo.png'})();
 </script>

@@ -69,7 +69,7 @@ footer{background:var(--sidebar);padding:32px 0}
       <img class="wf-icon logo-png" src="assets/logo.png" alt="" style="display:none;border-radius:7px">
       Havora
     </a>
-    <a href="index.html" class="btn-nav-back">← Volver al inicio</a>
+    <div style="display:flex;align-items:center;gap:10px"><span data-lang-switch></span><a href="index.html" class="btn-nav-back">← Volver al inicio</a></div>
   </div>
 </nav>
 
@@ -77,6 +77,7 @@ footer{background:var(--sidebar);padding:32px 0}
   <div class="doc-eyebrow">Legal</div>
   <h1 class="doc-title">Política de privacidad</h1>
   <p class="doc-updated">Última actualización: 7 de septiembre de 2026</p>
+  <p class="doc-updated" data-i18n-en-only hidden style="margin-top:-40px">Esta traducción es solo de referencia. Si hay diferencias, vale la versión en español.</p>
 
   <div class="doc-note">
     Havora es una aplicación de escritorio: tu contenido creativo se guarda siempre en tu equipo, nunca en nuestros servidores. Usamos una señal anónima de uso (ver punto 2.4) para saber cuánta gente usa la app — nunca vendemos tu información a terceros.
@@ -120,11 +121,11 @@ footer{background:var(--sidebar);padding:32px 0}
     <li>Si tu cuenta es gratuita o Premium.</li>
     <li>Tu país, a partir de la ubicación de la red — no guardamos tu dirección IP.</li>
   </ul>
-  <p>Si completaste tu nombre y correo en Configuración → Perfil, esos dos datos viajan también junto con la señal, para poder identificarte si escribís a soporte. Son privados: solo los ve el equipo de Havora, nunca se publican ni se comparten con terceros, y se conservan hasta 90 días. Podés dejar el Perfil vacío sin que eso afecte ninguna función de la app.</p>
+  <p>Si completaste tu nombre y correo en Configuración → Perfil, esos dos datos viajan también junto con la señal, para poder identificarte si escribes a soporte. Son privados: solo los ve el equipo de Havora, nunca se publican ni se comparten con terceros, y se conservan hasta 90 días. Puedes dejar el Perfil vacío sin que eso afecte ninguna función de la app.</p>
 
   <h2>3. Datos que NO recopilamos</h2>
   <ul>
-    <li>No identificamos quién sos a partir de la analítica de uso, salvo que vos mismo completes tu Perfil (ver 2.4).</li>
+    <li>No identificamos quién eres a partir de la analítica de uso, salvo que tú mismo completes tu Perfil (ver 2.4).</li>
     <li>No se registran errores o bloqueos en servidores externos.</li>
     <li>No usamos cookies ni tecnologías de rastreo.</li>
     <li>No compartimos ningún dato con terceros salvo los descritos en el punto 2.</li>
@@ -167,6 +168,9 @@ footer{background:var(--sidebar);padding:32px 0}
   </div>
 </footer>
 
+<!-- Idioma (español / inglés): ver js/i18n.js -->
+<script src="js/i18n-en.js"></script>
+<script src="js/i18n.js"></script>
 <script>
 (function(){var t=new Image();t.onload=function(){document.querySelectorAll('.logo-svg').forEach(function(e){e.style.display='none'});document.querySelectorAll('.logo-png').forEach(function(e){e.style.display='block'})};t.src='assets/logo.png'})();
 </script>

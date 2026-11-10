@@ -73,7 +73,7 @@ footer{background:var(--sidebar);padding:32px 0}
       <img class="wf-icon logo-png" src="assets/logo.png" alt="" style="display:none;border-radius:7px">
       Havora
     </a>
-    <a href="index.html" class="btn-nav-back">← Volver al inicio</a>
+    <div style="display:flex;align-items:center;gap:10px"><span data-lang-switch></span><a href="index.html" class="btn-nav-back">← Volver al inicio</a></div>
   </div>
 </nav>
 
@@ -81,6 +81,7 @@ footer{background:var(--sidebar);padding:32px 0}
   <div class="doc-eyebrow">Legal</div>
   <h1 class="doc-title">Política de reembolsos</h1>
   <p class="doc-updated">Última actualización: 6 de agosto de 2026</p>
+  <p class="doc-updated" data-i18n-en-only hidden style="margin-top:-40px">Esta traducción es solo de referencia. Si hay diferencias, vale la versión en español.</p>
 
   <div class="doc-highlight">
     <strong>Resumen:</strong> Havora Premium es un <strong>pago único</strong> (licencia de por vida, sin renovaciones). Tienes 14 días desde la compra para solicitar un reembolso completo. Solo escríbenos a <a href="mailto:havora.wb@gmail.com">havora.wb@gmail.com</a> con el email de tu compra.
@@ -148,6 +149,9 @@ footer{background:var(--sidebar);padding:32px 0}
   </div>
 </footer>
 
+<!-- Idioma (español / inglés): ver js/i18n.js -->
+<script src="js/i18n-en.js"></script>
+<script src="js/i18n.js"></script>
 <script>
 (function(){var t=new Image();t.onload=function(){document.querySelectorAll('.logo-svg').forEach(function(e){e.style.display='none'});document.querySelectorAll('.logo-png').forEach(function(e){e.style.display='block'})};t.src='assets/logo.png'})();
 </script>
