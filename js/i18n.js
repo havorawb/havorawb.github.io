@@ -164,10 +164,20 @@
     // con un botón para verlos igual, en español.
     var esOnly = document.querySelectorAll('[data-i18n-es-only]');
     for (var e = 0; e < esOnly.length; e++) { esOnly[e].setAttribute('lang', 'es'); esOnly[e].hidden = true; }
-    // Imágenes con texto que tienen su versión en inglés (p. ej. la insignia oficial de Microsoft
-    // Store): <img src="…es.svg" data-src-en="…en.svg">. El alt se traduce con el diccionario.
-    var imgs = document.querySelectorAll('img[data-src-en]');
-    for (var g = 0; g < imgs.length; g++) imgs[g].setAttribute('src', imgs[g].getAttribute('data-src-en'));
+    // Imágenes con texto que tienen su versión en inglés (la insignia oficial de Microsoft Store, las
+    // capturas de la app con la interfaz en inglés): <img src="…es.webp" data-src-en="…-en.webp">.
+    // Sirve igual para srcset (data-srcset-en, en <img> o <source>), el src de un <source> de video
+    // (data-src-en; después se llama a load() para que el video lo tome) y el poster (data-poster-en).
+    // El alt se traduce con el diccionario. Las capturas que están más abajo en la página llevan
+    // loading="lazy": así el navegador no alcanza a bajar la versión en español antes del cambio.
+    var swaps = [['data-src-en', 'src'], ['data-srcset-en', 'srcset'], ['data-poster-en', 'poster']];
+    for (var w = 0; w < swaps.length; w++) {
+      var els = document.querySelectorAll('[' + swaps[w][0] + ']');
+      for (var g = 0; g < els.length; g++) {
+        els[g].setAttribute(swaps[w][1], els[g].getAttribute(swaps[w][0]));
+        if (els[g].tagName === 'SOURCE' && els[g].parentNode && els[g].parentNode.load) els[g].parentNode.load();
+      }
+    }
     // Avisos que solo tienen sentido en inglés (p. ej. «esta traducción es de referencia»).
     var enOnly = document.querySelectorAll('[data-i18n-en-only]');
     for (var q = 0; q < enOnly.length; q++) enOnly[q].hidden = false;
