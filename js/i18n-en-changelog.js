@@ -3,6 +3,21 @@
 // Al publicar una versión nueva: sumar acá el título (changelog-tag) y cada cambio en inglés; si falta, se ve en
 // español. Las versiones anteriores a la 4.0 no tienen traducción y van dentro de <div data-i18n-es-only>.
 window.HV_EN = Object.assign(window.HV_EN || {}, {
+  "Idioma automático, encuadre en todas las imágenes y aviso de versión nueva en la Store": "Automatic language, framing on every image and new version notice in the Store",
+  "Idioma automático: la primera vez que abres Havora, usa el idioma de tu equipo (español o inglés). Si tu equipo está en otro idioma, te pregunta cuál prefieres. Puedes cambiarlo cuando quieras en Configuración → Apariencia.": "Automatic language: the first time you open Havora, it uses your computer’s language (Spanish or English). If your computer is in another language, it asks which one you prefer. You can change it anytime in Settings → Appearance.",
+  "El idioma que elijas viaja con tu cuenta: la sincronización y el respaldo lo llevan a tus otros equipos y a tu celular.": "The language you choose travels with your account: sync and backup take it to your other computers and your phone.",
+  "Encuadre en todas las imágenes: elige qué parte se ve en las fichas de las herramientas de género, en las galaxias, sistemas, planetas, bases y naves del Universo, y en las fotos del Tablero de investigación. El PDF de una ficha y de la cronología también respeta el encuadre.": "Framing on every image: choose which part shows in genre tool pages, in Universe galaxies, systems, planets, bases and ships, and in Investigation board photos. A page’s PDF and the timeline PDF also keep the framing.",
+  "Si instalaste Havora desde Microsoft Store, ahora te avisa cuando hay una versión nueva y la abre en la Store con un clic.": "If you installed Havora from Microsoft Store, it now tells you when there is a new version and opens it in the Store with one click.",
+  "Pegar texto copiado de una web en el Manuscrito o en una ficha ahora lo limpia por completo.": "Pasting text copied from a website into the Manuscript or a page now cleans it completely.",
+  "El aviso «Descargando…» de una actualización ahora se lee bien en el tema claro.": "The “Downloading…” notice for an update is now easy to read in the light theme.",
+  "Cancelar en una ficha nueva que todavía no guardaste ahora la cierra.": "Cancel on a new page you haven’t saved yet now closes it.",
+  "El aviso «Guardado» ya no aparece cuando la ficha no se guardó (por ejemplo, si le falta el nombre).": "The “Saved” notice no longer appears when the page wasn’t saved (for example, if it has no name).",
+  "Los títulos y textos muy largos ya no deforman las tarjetas ni tapan la imagen de una ficha.": "Very long titles and texts no longer stretch cards or cover a page’s image.",
+  "Los menús, las sugerencias del corrector y los globos ya no se salen de la ventana.": "Menus, spell checker suggestions and tooltips no longer go outside the window.",
+  "Tablas de diseño: Guardar también guarda el nombre y los encabezados que acabas de escribir, y Cancelar descarta los cambios.": "Design tables: Save also saves the name and headers you just typed, and Cancel discards the changes.",
+  "Ideas: una idea nueva guardada con título ya no aparece como «Sin título».": "Ideas: a new idea saved with a title no longer shows as “Untitled”.",
+  "Havora en inglés: los contadores de palabras, el corrector, el Tablero, Promoción, la Escaleta y otros textos que seguían en español ahora salen en inglés.": "Havora in English: word counters, the spell checker, the Board, Promotion, the Outline and other texts that were still in Spanish now show in English.",
+  "Edad y Esperanza de vida ya no aceptan números negativos: te avisan junto al campo.": "Age and Life expectancy no longer accept negative numbers: they warn you next to the field.",
   "Havora, listo para escribir": "Havora, ready to write",
   "Nueva función": "New feature",
   "Mejora": "Improvement",
