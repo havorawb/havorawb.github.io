@@ -4,6 +4,14 @@
 // Si cambias un texto en español en el HTML, cambia también su clave acá (si no, se ve en español en la versión en inglés).
 // Para ver qué falta en una página: abrirla con ?lang=en&i18nDebug=1 y mirar la consola.
 window.HV_EN = Object.assign(window.HV_EN || {}, {
+  "Guion": "Screenplay",
+  "Escribe tu guion con formato profesional": "Write your screenplay in professional format",
+  "Elige el formato Guion en Mi obra y el Manuscrito escribe como un programa de guion: encabezados de escena, acción, personajes, acotaciones, diálogos y transiciones, en Courier y con las sangrías de la industria.": "Choose the Screenplay format in My work and the Manuscript writes like screenwriting software: scene headings, action, characters, parentheticals, dialogue and transitions, in Courier with industry margins.",
+  "Enter y Tab pasan al elemento que sigue; tus personajes y lugares aparecen mientras escribes": "Enter and Tab move to the next element; your characters and locations appear as you type",
+  "PDF con formato de la industria, Fountain y Final Draft (exporta e importa)": "Industry-standard PDF, Fountain and Final Draft (export and import)",
+  "Extensión en páginas y minutos, informes de personajes y desglose por escena": "Length in pages and minutes, character reports and scene breakdown",
+  "Revisiones por colores y números de escena fijos para producción": "Color revisions and locked scene numbers for production",
+  "Manuscrito de Havora en modo guion, con la sugerencia de personajes mientras se escribe": "Havora Manuscript in screenplay mode, with character suggestions as you type",
   "Havora — El hogar de tu imaginación": "Havora — The home of your imagination",
   "Havora, el hogar de tu imaginación: la aplicación para Windows y Android para planificar, escribir y desarrollar tu novela. Personajes, mapa, manuscrito, IA integrada. Tu contenido siempre en tu equipo.": "Havora, the home of your imagination: the Windows and Android app to plan, write and develop your novel. Characters, maps, manuscript, built-in AI. Your content always stays on your device.",
   "Havora": "Havora",
