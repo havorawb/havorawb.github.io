@@ -91,17 +91,10 @@ nav{background:var(--sidebar);border-bottom:1px solid rgba(255,255,255,.06);padd
 :root[data-theme=light] .ms-badge-light{display:none}
 .hero-footnote{display:flex;justify-content:center;gap:22px;flex-wrap:wrap;font-size:.78rem;color:var(--muted);margin-bottom:56px}
 .hero-footnote span::before{content:'✓ ';color:var(--accent);font-weight:700}
-/* hero screenshot area */
-.hero-screen{margin:0 auto;max-width:900px;padding:0 0}
-.screen-chrome{background:var(--sidebar);border-radius:12px 12px 0 0;padding:10px 14px;display:flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.08);border-bottom:none}
-.chrome-dot{width:10px;height:10px;border-radius:50%}
-.chrome-bar{flex:1;height:22px;background:rgba(255,255,255,.07);border-radius:5px;margin:0 20px}
-.screen-img-wrap{border:1px solid rgba(255,255,255,.08);border-top:none;border-radius:0 0 12px 12px;overflow:hidden;background:var(--bg3)}
-.screen-img-wrap img{width:100%;height:auto;display:block;border-radius:0 0 12px 12px}
-.screen-img-wrap video{width:100%;height:auto;aspect-ratio:16/9;display:block;border-radius:0 0 12px 12px;background:#000}
-.screen-placeholder{display:flex;flex-direction:column;align-items:center;gap:10px;color:var(--muted);padding:40px}
-.screen-placeholder svg{opacity:.35}
-.screen-placeholder span{font-size:.8rem;opacity:.6}
+/* hero: collage de capturas reales (PC + celular) en un solo WebP con fondo transparente, sirve en los dos temas */
+.hero-screen{margin:0 auto;max-width:900px}
+.hero-collage{width:100%;height:auto;display:block}
+@media(max-width:640px){.hero-screen{margin:0 -10px}}
 
 /* ── STATS BAR ── */
 .stats-bar{background:var(--bg2);border-bottom:1px solid var(--border);padding:18px 0}
@@ -433,21 +426,11 @@ footer{background:var(--sidebar);padding:32px 0}
         <span>v5.0.0</span>
       </div>
     </div>
-    <!-- Video principal de la app (assets/hero.mp4, sin sonido; la captura de antes queda de respaldo) -->
+    <!-- Collage de capturas reales de la app (PC y celular), una versión por idioma. Reemplaza al video de antes
+         (assets/hero.mp4 y hero-poster.jpg quedan en la carpeta, sin usar): un collage se rehace con un script en vez de
+         volver a grabar un video en cada cambio de diseño. -->
     <div class="hero-screen">
-      <div class="screen-chrome">
-        <div class="chrome-dot" style="background:#ff5f57"></div>
-        <div class="chrome-dot" style="background:#febc2e"></div>
-        <div class="chrome-dot" style="background:#28c840"></div>
-        <div class="chrome-bar"></div>
-      </div>
-      <div class="screen-img-wrap">
-        <video class="hero-video" autoplay muted loop playsinline controls preload="metadata" poster="assets/hero-poster.jpg" aria-label="Recorrido por Havora: la obra, el manuscrito, el mundo y la maquetación">
-          <source src="assets/hero.mp4" type="video/mp4">
-          <img src="assets/wf-hero.png" alt="Havora — ficha de personaje con worldbuilding">
-        </video>
-        <script>(function(){var v=document.querySelector('.hero-video');if(v&&matchMedia('(prefers-reduced-motion: reduce)').matches){v.removeAttribute('autoplay');v.pause();}})();</script>
-      </div>
+      <img class="hero-collage" src="assets/hero-collage.webp" data-src-en="assets/hero-collage-en.webp" alt="Havora en la computadora y en el celular: el manuscrito, el gráfico de relaciones y la lista de capítulos" width="1880" height="1232" loading="eager" fetchpriority="high" decoding="async">
     </div>
   </div>
 </section>

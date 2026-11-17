@@ -37,6 +37,7 @@ window.HV_EN = Object.assign(window.HV_EN || {}, {
   "Windows 10 / 11": "Windows 10 / 11",
   "Android": "Android",
   "100% offline": "100% offline",
+  "Havora en la computadora y en el celular: el manuscrito, el gráfico de relaciones y la lista de capítulos": "Havora on the computer and on the phone: the manuscript, the relationship graph and the chapter list",
   "Sin suscripciones": "No subscriptions",
   "Tus datos son tuyos": "Your data is yours",
   "Todo en una sola app": "Everything in one app",
