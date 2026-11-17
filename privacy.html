@@ -76,11 +76,11 @@ footer{background:var(--sidebar);padding:32px 0}
 <div class="doc">
   <div class="doc-eyebrow">Legal</div>
   <h1 class="doc-title">Política de privacidad</h1>
-  <p class="doc-updated">Última actualización: 10 de noviembre de 2026</p>
+  <p class="doc-updated">Última actualización: 17 de noviembre de 2026</p>
   <p class="doc-updated" data-i18n-en-only hidden style="margin-top:-40px">Esta traducción es solo de referencia. Si hay diferencias, vale la versión en español.</p>
 
   <div class="doc-note">
-    Havora es una aplicación para Windows y Android: tu contenido creativo se guarda siempre en tu equipo o tu celular, nunca en nuestros servidores. Usamos una señal anónima de uso (ver punto 2.4) para saber cuánta gente usa la app — nunca vendemos tu información a terceros.
+    Havora es una aplicación para Windows y Android: tu contenido creativo se guarda siempre en tu equipo o tu celular, nunca en nuestros servidores. Usamos una señal anónima de uso, que puedes apagar en Configuración (ver punto 2.4), para saber cuánta gente usa la app y qué secciones se usan más — nunca vendemos tu información a terceros.
   </div>
 
   <h2>1. Qué datos se almacenan y dónde</h2>
@@ -116,24 +116,32 @@ footer{background:var(--sidebar);padding:32px 0}
   <p>Al iniciar la aplicación, Havora consulta la API pública de GitHub para verificar si existe una versión más nueva. Esta petición no incluye datos personales ni identificadores de usuario — solo compara números de versión. (Si instalaste Havora desde la Microsoft Store o desde Google Play, este paso no aplica: las actualizaciones las entrega la tienda.)</p>
 
   <h2>2.4 Analítica de uso anónima</h2>
-  <p>Al iniciar la aplicación, Havora envía una señal breve a nuestro servidor para saber cuánta gente la usa y qué versión. Incluye:</p>
+  <p>Una vez al día, al abrir la aplicación, Havora envía una señal breve a nuestro servidor (un Cloudflare Worker) para saber cuánta gente la usa, con qué versión y qué partes de la app se usan más. Incluye:</p>
   <ul>
     <li>Un identificador al azar generado una sola vez por instalación — no se deriva de tu nombre ni de datos de tu equipo, solo sirve para no contar dos veces la misma instalación.</li>
-    <li>La versión de Havora y el sistema operativo.</li>
+    <li>La versión de Havora y si la usas en la PC (Windows) o en el celular (Android).</li>
     <li>Si tu cuenta es gratuita o Premium.</li>
-    <li>Tu país, a partir de la ubicación de la red — no guardamos tu dirección IP.</li>
+    <li>Tu país, que Cloudflare deduce de la conexión.</li>
+    <li>Cuántas veces abriste cada sección de la app desde la señal anterior (por ejemplo, «Manuscrito: 12, Mapas: 3»). Solo el nombre fijo de cada sección y un número: nunca el título de tus obras, los nombres de tus personajes, el texto que escribes ni lo que buscas.</li>
+    <li>Si escribiste un correo en <strong>Mi perfil</strong>, una huella de ese correo (un código SHA-256 con sal) que no permite leer el correo: solo sirve para contar tu PC y tu celular como una sola persona. Tu nombre y tu correo no viajan.</li>
   </ul>
-  <p>Si completaste tu nombre y correo en Configuración → Perfil, esos dos datos viajan también junto con la señal, para poder identificarte si escribes a soporte. Son privados: solo los ve el equipo de Havora, nunca se publican ni se comparten con terceros, y se conservan hasta 90 días. Puedes dejar el Perfil vacío sin que eso afecte ninguna función de la app.</p>
+  <p>No guardamos tu dirección IP con estos datos: solo se usa durante un minuto para frenar envíos repetidos (un límite de solicitudes) y después se borra sola. Los datos se conservan unos 90 días y luego se eliminan automáticamente. Solo los ve el equipo de Havora: nunca se publican, se venden ni se comparten con terceros.</p>
+  <p>Las versiones de Havora anteriores a noviembre de 2026 enviaban también el nombre y el correo de tu Perfil, si los habías completado. Hoy nuestro servidor no los guarda: si una versión anterior todavía los manda, convierte el correo en la misma huella y descarta los dos. Los registros anteriores se borran solos al cumplir los 90 días.</p>
+  <p><strong>Cómo apagarla</strong> (desde Havora 5.1): en <strong>Configuración → Tus datos → Datos y archivos</strong> (en el celular, <strong>Configuración → Datos y archivos</strong>), apaga <strong>Enviar estadísticas de uso anónimas</strong>. Apagada, Havora no envía nada desde ese equipo —ni la señal diaria ni el conteo de secciones— y borra lo que tenía contado sin enviar. Se elige en cada equipo, y apagarla no cambia ninguna función de la app.</p>
 
   <h2>2.5 Sincronización con Google Drive (opcional)</h2>
   <p>Si conectas tu cuenta de Google para sincronizar tus obras entre tus equipos (en Windows o en Android), Havora guarda una copia de tus obras en el espacio privado de la app dentro de <strong>tu propio Google Drive</strong>. Esa copia no se ve en tu Drive normal y ninguna otra app puede leerla. La app se comunica directamente con Google, sin pasar por servidores nuestros, y nosotros no tenemos acceso a ese contenido. Puedes desconectar la cuenta cuando quieras.</p>
   <p>La privacidad de esa copia la rige la <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">política de privacidad de Google</a>.</p>
 
+  <h2>2.6 Reseñas (opcional)</h2>
+  <p>Si eliges <strong>Dejar una reseña</strong> dentro de la app, se envían las estrellas, tu comentario, el nombre o seudónimo que escribas (opcional) y la versión de Havora; nuestro servidor agrega el país de la conexión. Revisamos cada reseña antes de publicarla en el sitio de Havora: si la aprobamos, se publican las estrellas, el comentario y el nombre o seudónimo (o «Escritor/a de Havora» si lo dejaste vacío). Para que la quitemos, escríbenos al correo del punto 7.</p>
+
   <h2>3. Datos que NO recopilamos</h2>
   <ul>
-    <li>No identificamos quién eres a partir de la analítica de uso, salvo que tú mismo completes tu Perfil (ver 2.4).</li>
+    <li>No recibimos tu nombre ni tu correo con la analítica de uso, y puedes apagarla cuando quieras (ver 2.4).</li>
+    <li>No recopilamos el contenido de tus obras: ni títulos, ni nombres de personajes, ni el texto que escribes, ni lo que buscas.</li>
     <li>No se registran errores o bloqueos en servidores externos.</li>
-    <li>No usamos cookies ni tecnologías de rastreo.</li>
+    <li>No usamos cookies ni rastreo publicitario, y no seguimos lo que haces fuera de Havora.</li>
     <li>No compartimos ningún dato con terceros salvo los descritos en el punto 2.</li>
   </ul>
 
