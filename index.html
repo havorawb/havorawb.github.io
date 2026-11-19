@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Havora — El hogar de tu imaginación</title>
-<meta name="description" content="Havora, el hogar de tu imaginación: la aplicación para Windows y Android para planificar, escribir y desarrollar tu novela. Personajes, mapa, manuscrito, IA integrada. Tu contenido siempre en tu equipo.">
+<meta name="description" content="Havora, el hogar de tu imaginación: la aplicación para Windows y Android para planificar, escribir y desarrollar tu novela. Personajes, mapa, manuscrito y maquetación. Tu contenido siempre en tu equipo.">
 <link rel="icon" type="image/png" href="assets/logo.png">
 <link rel="stylesheet" href="css/stores.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -423,7 +423,7 @@ footer{background:var(--sidebar);padding:32px 0}
         <span>Windows 10 / 11</span>
         <span>Android</span>
         <span>100% offline</span>
-        <span>v5.1.0</span>
+        <span>v5.2.0</span>
       </div>
     </div>
     <!-- Collage de capturas reales de la app (PC y celular), una versión por idioma. Reemplaza al video de antes
@@ -1072,7 +1072,7 @@ footer{background:var(--sidebar);padding:32px 0}
       <div class="check-item"><i>✓</i> Todo conectado: manuscrito, personajes y mundo</div>
       <div class="check-item"><i>✓</i> 100% offline, sin depender de internet</div>
       <div class="check-item"><i>✓</i> Sin suscripción — pago único, de por vida</div>
-      <div class="check-item"><i>✓</i> Asistente de IA, 100% opcional</div>
+      <div class="check-item"><i>✓</i> Sincronización opcional con tu Google Drive</div>
       <div class="check-item"><i>✓</i> Mapa interactivo con distancias reales</div>
       <div class="check-item"><i>✓</i> Cronología con detección de conflictos</div>
       <div class="check-item"><i>✓</i> Gráfico de relaciones y árbol genealógico</div>
@@ -1114,7 +1114,6 @@ footer{background:var(--sidebar);padding:32px 0}
           <li>Mapa, relaciones y árbol genealógico</li>
           <li>Corrector ortográfico offline (ES / EN)</li>
           <li>Exportación a TXT, .wf y PDF (con marca de agua)</li>
-          <li>Asistente de IA (con tu propia clave API)</li>
           <li>1 backup automático del proyecto</li>
           <li class="dim">Exportación a DOCX, EPUB y ODT</li>
           <li class="dim">Sin límites de contenido</li>
@@ -1166,7 +1165,6 @@ footer{background:var(--sidebar);padding:32px 0}
           <tr><td>Personajes, locaciones, grupos y wiki</td><td><span class="cval-y">✓</span></td><td class="col-prem"><span class="cval-y">✓</span></td></tr>
           <tr><td>Mapa interactivo y árbol genealógico</td><td><span class="cval-y">✓</span></td><td class="col-prem"><span class="cval-y">✓</span></td></tr>
           <tr><td>Corrector ortográfico offline (ES / EN)</td><td><span class="cval-y">✓</span></td><td class="col-prem"><span class="cval-y">✓</span></td></tr>
-          <tr><td>Asistente de IA (con tu propia clave API)</td><td><span class="cval-y">✓</span></td><td class="col-prem"><span class="cval-y">✓</span></td></tr>
           <tr><td>Exportación a TXT y .wf</td><td><span class="cval-y">✓</span></td><td class="col-prem"><span class="cval-y">✓</span></td></tr>
           <tr><td>Exportación a PDF</td><td><span class="cval-lim">con marca de agua</span></td><td class="col-prem"><span class="cval-y">✓ sin marca de agua</span></td></tr>
           <tr><td>Exportación a DOCX, EPUB y ODT</td><td><span class="cval-n">—</span></td><td class="col-prem"><span class="cval-y">✓</span></td></tr>
@@ -1204,7 +1202,7 @@ footer{background:var(--sidebar);padding:32px 0}
           ¿Havora funciona sin conexión a internet?
           <svg class="faq-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
-        <div class="faq-a"><p>Sí, 100% offline. El editor, el corrector ortográfico, el mapa, las fichas de personajes y todos los módulos funcionan sin internet. Solo el asistente de IA y las actualizaciones automáticas usan internet, y únicamente si tú los activas.</p></div>
+        <div class="faq-a"><p>Sí, 100% offline. El editor, el corrector ortográfico, el mapa, las fichas de personajes y todos los módulos funcionan sin internet. Solo las actualizaciones automáticas y la sincronización con Google Drive usan internet, y únicamente si tú las activas.</p></div>
       </div>
 
       <div class="faq-item">
@@ -1255,21 +1253,6 @@ footer{background:var(--sidebar);padding:32px 0}
         <div class="faq-a"><p>Sí, dentro de los primeros 14 días desde la compra, sin necesidad de justificar el motivo. Consulta la <a href="refund.html">política de reembolsos</a> para el detalle.</p></div>
       </div>
 
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          ¿La IA escribe mi novela por mí?
-          <svg class="faq-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="6 9 12 15 18 9"/></svg>
-        </div>
-        <div class="faq-a"><p>No. Havora está pensado para que <strong>tú</strong> escribas — la IA es 100% opcional y, si no la conectas, ni siquiera aparece en la interfaz. No escribe por ti: ni capítulos, ni fichas, ni ideas. Solo te ayuda a investigar y a revisar:</p>
-        <ul style="margin:10px 0 10px 20px;padding:0;list-style:disc;display:flex;flex-direction:column;gap:5px">
-          <li>Revisar gramática y estilo de un capítulo ya escrito (sugerencias, no reescritura automática)</li>
-          <li>Sugerir sinónimos para una palabra o frase que selecciones</li>
-          <li>Responder preguntas tuyas sobre el capítulo actual (una especie de asistente de consulta)</li>
-          <li>Proponer nombres para personajes o lugares, que tú eliges</li>
-        </ul>
-        <p>Es compatible con <strong>OpenAI</strong>, <strong>Google Gemini</strong> y <strong>Anthropic Claude</strong>: pones tu propia clave de API en Configuración y la app la usa directamente, sin intermediarios ni costos extra de nuestra parte — pagas solo lo que consumes con tu proveedor.</p></div>
-      </div>
-
     </div>
   </div>
 </section>
@@ -1306,6 +1289,35 @@ footer{background:var(--sidebar);padding:32px 0}
     </div>
 
         <div class="changelog-entry">
+    <div class="changelog-header">
+      <span class="changelog-v">v5.2.0</span>
+      <span class="changelog-date">19 de noviembre de 2026</span>
+      <span class="changelog-tag">Combates en escena, dos capítulos a la vez y una Maquetación más rápida</span>
+    </div>
+    <div class="changelog-groups">
+      <div class="changelog-group">
+        <h4>Novedades</h4>
+        <ul>
+          <li class="chg-item"><span class="chg-badge chg-new"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.828zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.73 1.73 0 0 0 4.593 5.69l-.387 1.162a.217.217 0 0 1-.412 0L3.407 5.69A1.73 1.73 0 0 0 2.31 4.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387A1.73 1.73 0 0 0 3.407 2.31zM10.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.16 1.16 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.16 1.16 0 0 0-.732-.732L9.1 2.137a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732z"/></svg></span> Combates en escena: una página para planear cada pelea tiempo a tiempo, con quién está dónde, los objetos y las heridas, que pasan a la salud del personaje. La coreografía se ve sobre los mapas 2D y 3D, y cada escena y cada personaje muestran sus combates.</li>
+          <li class="chg-item"><span class="chg-badge chg-new"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.828zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.73 1.73 0 0 0 4.593 5.69l-.387 1.162a.217.217 0 0 1-.412 0L3.407 5.69A1.73 1.73 0 0 0 2.31 4.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387A1.73 1.73 0 0 0 3.407 2.31zM10.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.16 1.16 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.16 1.16 0 0 0-.732-.732L9.1 2.137a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732z"/></svg></span> Dos capítulos a la vez en el Manuscrito: abre otro capítulo al lado del que escribes, también para editarlo. Se guarda solo, la barra de formato actúa donde está el cursor y un clic los intercambia.</li>
+          <li class="chg-item"><span class="chg-badge chg-new"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.828zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.73 1.73 0 0 0 4.593 5.69l-.387 1.162a.217.217 0 0 1-.412 0L3.407 5.69A1.73 1.73 0 0 0 2.31 4.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387A1.73 1.73 0 0 0 3.407 2.31zM10.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.16 1.16 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.16 1.16 0 0 0-.732-.732L9.1 2.137a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732z"/></svg></span> Editor del Manuscrito más ordenado: la barra de formato arriba, el título del capítulo justo encima del texto y, abajo, las palabras, el estado de guardado y el zoom.</li>
+          <li class="chg-item"><span class="chg-badge chg-new"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.828zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.73 1.73 0 0 0 4.593 5.69l-.387 1.162a.217.217 0 0 1-.412 0L3.407 5.69A1.73 1.73 0 0 0 2.31 4.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387A1.73 1.73 0 0 0 3.407 2.31zM10.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.16 1.16 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.16 1.16 0 0 0-.732-.732L9.1 2.137a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732z"/></svg></span> Maquetación: encabezados de página con el título del libro o del capítulo, portada interna a medida (letra, tamaño y posición del título, el subtítulo y el autor, y un logo al pie) y espacio ajustable alrededor del ornamento.</li>
+          <li class="chg-item"><span class="chg-badge chg-new"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.828zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.73 1.73 0 0 0 4.593 5.69l-.387 1.162a.217.217 0 0 1-.412 0L3.407 5.69A1.73 1.73 0 0 0 2.31 4.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387A1.73 1.73 0 0 0 3.407 2.31zM10.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.16 1.16 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.16 1.16 0 0 0-.732-.732L9.1 2.137a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732z"/></svg></span> Vista previa de Maquetación más rápida: se rehace por detrás mientras sigues viendo la anterior, vuelve a la página donde estabas, y el adorno de capítulo y las imágenes sueltas se arrastran directo sobre la página.</li>
+          <li class="chg-item"><span class="chg-badge chg-new"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.828zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.73 1.73 0 0 0 4.593 5.69l-.387 1.162a.217.217 0 0 1-.412 0L3.407 5.69A1.73 1.73 0 0 0 2.31 4.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387A1.73 1.73 0 0 0 3.407 2.31zM10.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.16 1.16 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.16 1.16 0 0 0-.732-.732L9.1 2.137a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732z"/></svg></span> Panel Referencias del Manuscrito: cada ficha mencionada con su imagen, cuántas veces aparece en el capítulo y sus botones siempre a la vista.</li>
+        </ul>
+      </div>
+      <div class="changelog-group">
+        <h4>Correcciones</h4>
+        <ul>
+          <li class="chg-item"><span class="chg-badge chg-fixed"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M4.978.855a.5.5 0 1 0-.956.29l.41 1.352A5 5 0 0 0 3 6h10a5 5 0 0 0-1.432-3.503l.41-1.352a.5.5 0 1 0-.956-.29l-.291.956A5 5 0 0 0 8 1a5 5 0 0 0-2.731.811l-.29-.956z"/><path d="M13 6v1H8.5v8.975A5 5 0 0 0 13 11h.5a.5.5 0 0 1 .5.5v.5a.5.5 0 1 0 1 0v-.5a1.5 1.5 0 0 0-1.5-1.5H13V9h1.5a.5.5 0 0 0 0-1H13V7h.5A1.5 1.5 0 0 0 15 5.5V5a.5.5 0 0 0-1 0v.5a.5.5 0 0 1-.5.5zm-5.5 9.975V7H3V6h-.5a.5.5 0 0 1-.5-.5V5a.5.5 0 0 0-1 0v.5A1.5 1.5 0 0 0 2.5 7H3v1H1.5a.5.5 0 0 0 0 1H3v1h-.5A1.5 1.5 0 0 0 1 11.5v.5a.5.5 0 1 0 1 0v-.5a.5.5 0 0 1 .5-.5H3a5 5 0 0 0 4.5 4.975"/></svg></span> PDF: el número de página es impar en las páginas de la derecha y par en las de la izquierda, como en un libro impreso.</li>
+          <li class="chg-item"><span class="chg-badge chg-fixed"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M4.978.855a.5.5 0 1 0-.956.29l.41 1.352A5 5 0 0 0 3 6h10a5 5 0 0 0-1.432-3.503l.41-1.352a.5.5 0 1 0-.956-.29l-.291.956A5 5 0 0 0 8 1a5 5 0 0 0-2.731.811l-.29-.956z"/><path d="M13 6v1H8.5v8.975A5 5 0 0 0 13 11h.5a.5.5 0 0 1 .5.5v.5a.5.5 0 1 0 1 0v-.5a1.5 1.5 0 0 0-1.5-1.5H13V9h1.5a.5.5 0 0 0 0-1H13V7h.5A1.5 1.5 0 0 0 15 5.5V5a.5.5 0 0 0-1 0v.5a.5.5 0 0 1-.5.5zm-5.5 9.975V7H3V6h-.5a.5.5 0 0 1-.5-.5V5a.5.5 0 0 0-1 0v.5A1.5 1.5 0 0 0 2.5 7H3v1H1.5a.5.5 0 0 0 0 1H3v1h-.5A1.5 1.5 0 0 0 1 11.5v.5a.5.5 0 1 0 1 0v-.5a.5.5 0 0 1 .5-.5H3a5 5 0 0 0 4.5 4.975"/></svg></span> Exportar a PDF un libro muy largo ya no puede imprimir el libro a medio armar: espera a que estén todas las páginas.</li>
+          <li class="chg-item"><span class="chg-badge chg-fixed"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M4.978.855a.5.5 0 1 0-.956.29l.41 1.352A5 5 0 0 0 3 6h10a5 5 0 0 0-1.432-3.503l.41-1.352a.5.5 0 1 0-.956-.29l-.291.956A5 5 0 0 0 8 1a5 5 0 0 0-2.731.811l-.29-.956z"/><path d="M13 6v1H8.5v8.975A5 5 0 0 0 13 11h.5a.5.5 0 0 1 .5.5v.5a.5.5 0 1 0 1 0v-.5a1.5 1.5 0 0 0-1.5-1.5H13V9h1.5a.5.5 0 0 0 0-1H13V7h.5A1.5 1.5 0 0 0 15 5.5V5a.5.5 0 0 0-1 0v.5a.5.5 0 0 1-.5.5zm-5.5 9.975V7H3V6h-.5a.5.5 0 0 1-.5-.5V5a.5.5 0 0 0-1 0v.5A1.5 1.5 0 0 0 2.5 7H3v1H1.5a.5.5 0 0 0 0 1H3v1h-.5A1.5 1.5 0 0 0 1 11.5v.5a.5.5 0 1 0 1 0v-.5a.5.5 0 0 1 .5-.5H3a5 5 0 0 0 4.5 4.975"/></svg></span> Manuscrito: el panel Buscar y reemplazar tenía otro fondo y las esquinas redondeadas.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+                        <div class="changelog-entry">
     <div class="changelog-header">
       <span class="changelog-v">v5.1.0</span>
       <span class="changelog-date">17 de noviembre de 2026</span>
