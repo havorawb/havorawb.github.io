@@ -8,11 +8,14 @@
 // El remitente usa el dominio de pruebas de Resend (onboarding@resend.dev), que no requiere
 // verificar un dominio propio y funciona de inmediato en el plan gratuito.
 
-const ALLOWED_ORIGIN = 'https://havorawb.github.io';
+// El sitio vive en havora.page (dominio propio desde el 27-nov-2026) y sigue respondiendo en havorawb.github.io.
+const ALLOWED_ORIGINS = ['https://havora.page', 'https://www.havora.page', 'https://havorawb.github.io'];
+let _origin = ALLOWED_ORIGINS[0];
 
 function corsHeaders() {
   return {
-    'Access-Control-Allow-Origin': ALLOWED_ORIGIN,
+    'Access-Control-Allow-Origin': _origin,
+    'Vary': 'Origin',
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type',
   };
@@ -37,6 +40,8 @@ async function sendEmail(env, subject, text) {
 
 export default {
   async fetch(request, env) {
+    const o = request.headers.get('Origin') || '';
+    _origin = ALLOWED_ORIGINS.includes(o) ? o : ALLOWED_ORIGINS[0];
     if (request.method === 'OPTIONS') {
       return new Response(null, { headers: corsHeaders() });
     }

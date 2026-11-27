@@ -103,7 +103,7 @@ footer{background:var(--sidebar);padding:32px 0}
     <div class="form-msg" id="sfMsg"></div>
   </form>
 
-  <p class="doc-alt">También puedes escribirnos directo a <a href="mailto:havora.wb@gmail.com">havora.wb@gmail.com</a>.</p>
+  <p class="doc-alt">También puedes escribirnos directo a <a href="mailto:soporte@havora.page">soporte@havora.page</a>. Para ideas y sugerencias: <a href="mailto:sugerencias@havora.page">sugerencias@havora.page</a>. Para pagos y licencias: <a href="mailto:compras@havora.page">compras@havora.page</a>.</p>
 </div>
 
 <footer>
@@ -164,7 +164,7 @@ form.addEventListener('submit', async (e) => {
     msgEl.className = 'form-msg ok';
     form.reset();
   } catch {
-    msgEl.textContent = hvT('No se pudo enviar el mensaje. Escríbenos directo a havora.wb@gmail.com.');
+    msgEl.textContent = hvT('No se pudo enviar el mensaje. Escríbenos directo a soporte@havora.page.');
     msgEl.className = 'form-msg err';
   } finally {
     btn.disabled = false;
